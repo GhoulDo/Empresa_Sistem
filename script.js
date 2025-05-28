@@ -170,18 +170,79 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Contador animado para estadísticas
+// Contador animado para estadísticas mejorado
 function animateCounter(element, target, duration = 2000) {
+    const originalText = element.textContent;
+    
+    // Detectar si es un formato especial como "24/7"
+    if (originalText.includes('/')) {
+        const parts = originalText.split('/');
+        const firstNumber = parseInt(parts[0]);
+        const secondPart = '/' + parts[1];
+        
+        let start = 0;
+        const increment = firstNumber / (duration / 16);
+        
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= firstNumber) {
+                element.textContent = firstNumber + secondPart;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start) + secondPart;
+            }
+        }, 16);
+        return;
+    }
+    
+    // Detectar si termina con %
+    if (originalText.includes('%')) {
+        const number = parseInt(originalText.replace('%', ''));
+        let start = 0;
+        const increment = number / (duration / 16);
+        
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= number) {
+                element.textContent = number + '%';
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start) + '%';
+            }
+        }, 16);
+        return;
+    }
+    
+    // Detectar si termina con +
+    if (originalText.includes('+')) {
+        const number = parseInt(originalText.replace('+', ''));
+        let start = 0;
+        const increment = number / (duration / 16);
+        
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= number) {
+                element.textContent = number + '+';
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start) + '+';
+            }
+        }, 16);
+        return;
+    }
+    
+    // Para números simples
+    const number = parseInt(originalText);
     let start = 0;
-    const increment = target / (duration / 16);
+    const increment = number / (duration / 16);
     
     const timer = setInterval(() => {
         start += increment;
-        if (start >= target) {
-            element.textContent = target + (element.dataset.suffix || '');
+        if (start >= number) {
+            element.textContent = number;
             clearInterval(timer);
         } else {
-            element.textContent = Math.floor(start) + (element.dataset.suffix || '');
+            element.textContent = Math.floor(start);
         }
     }, 16);
 }
@@ -192,16 +253,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedSections = document.querySelectorAll('.services, .portfolio, .about');
     animatedSections.forEach(section => observer.observe(section));
     
-    // Animar contadores en hero
+    // Animar contadores en hero - MEJORADO
     const stats = document.querySelectorAll('.stat-number');
     stats.forEach(stat => {
-        const target = parseInt(stat.textContent.replace(/\D/g, ''));
-        stat.dataset.suffix = stat.textContent.replace(/\d/g, '');
+        const originalText = stat.textContent;
         
         const statObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateCounter(stat, target);
+                    animateCounter(stat, originalText);
                     statObserver.unobserve(stat);
                 }
             });
