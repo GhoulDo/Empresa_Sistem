@@ -532,7 +532,175 @@ document.addEventListener('DOMContentLoaded', () => {
         
         statObserver.observe(stat);
     });
+    
+    // Animaciones mejoradas para elementos de contacto
+    const contactItems = document.querySelectorAll('.contact-item');
+    contactItems.forEach((item, index) => {
+        item.style.animationDelay = `${0.2 + (index * 0.2)}s`;
+        item.classList.add('contact-animate');
+    });
+    
+    // Animaciones para elementos del formulario
+    const formElements = document.querySelectorAll('.contact-form .form-group');
+    formElements.forEach((element, index) => {
+        element.style.transform = 'translateY(30px)';
+        element.style.opacity = '0';
+        element.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        element.style.animationDelay = `${0.1 + (index * 0.1)}s`;
+    });
+    
+    // Intersection Observer para animaciones del formulario
+    const formObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animar elementos del formulario
+                const formGroups = entry.target.querySelectorAll('.form-group');
+                formGroups.forEach((group, index) => {
+                    setTimeout(() => {
+                        group.style.transform = 'translateY(0)';
+                        group.style.opacity = '1';
+                    }, index * 100);
+                });
+                
+                // Animar elementos de contacto
+                const contactItems = entry.target.querySelectorAll('.contact-item');
+                contactItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transform = 'translateX(0)';
+                        item.style.opacity = '1';
+                    }, index * 150);
+                });
+                
+                formObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    const contactSection = document.querySelector('.contact');
+    if (contactSection) {
+        formObserver.observe(contactSection);
+    }
+    
+    // Validación en tiempo real
+    const form = document.getElementById('contactForm');
+    if (form) {
+        const inputs = form.querySelectorAll('input, textarea');
+        
+        inputs.forEach(input => {
+            const formGroup = input.closest('.form-group') || input.parentElement;
+            
+            input.addEventListener('blur', () => validateField(input, formGroup));
+            input.addEventListener('input', () => clearFieldError(input, formGroup));
+            
+            // Efecto de focus mejorado
+            input.addEventListener('focus', () => {
+                input.style.transform = 'translateY(-2px) scale(1.02)';
+                input.style.boxShadow = '0 5px 15px rgba(99, 102, 241, 0.2)';
+            });
+            
+            input.addEventListener('blur', () => {
+                if (!input.value) {
+                    input.style.transform = 'translateY(0) scale(1)';
+                    input.style.boxShadow = 'none';
+                }
+            });
+        });
+    }
 });
+
+// Funciones de validación
+function validateField(input, formGroup) {
+    const value = input.value.trim();
+    const type = input.type;
+    const name = input.name;
+    
+    clearFieldError(input, formGroup);
+    
+    if (!value && input.required) {
+        showFieldError(input, formGroup, 'Este campo es obligatorio');
+        return false;
+    }
+    
+    if (type === 'email' && value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+            showFieldError(input, formGroup, 'Por favor ingresa un email válido');
+            return false;
+        }
+    }
+    
+    if (type === 'tel' && value) {
+        const phoneRegex = /^[0-9\s\-\+\(\)]{10,}$/;
+        if (!phoneRegex.test(value)) {
+            showFieldError(input, formGroup, 'Por favor ingresa un teléfono válido');
+            return false;
+        }
+    }
+    
+    if (name === 'nombre' && value.length < 2) {
+        showFieldError(input, formGroup, 'El nombre debe tener al menos 2 caracteres');
+        return false;
+    }
+    
+    if (name === 'mensaje' && value.length < 10) {
+        showFieldError(input, formGroup, 'El mensaje debe tener al menos 10 caracteres');
+        return false;
+    }
+    
+    showFieldSuccess(input, formGroup);
+    return true;
+}
+
+function showFieldError(input, formGroup, message) {
+    formGroup.classList.remove('success');
+    formGroup.classList.add('error');
+    
+    // Remover mensaje anterior
+    const existingError = formGroup.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Agregar nuevo mensaje
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+    formGroup.appendChild(errorDiv);
+    
+    // Animación de error
+    input.style.animation = 'shake 0.5s ease-in-out';
+    setTimeout(() => {
+        input.style.animation = '';
+    }, 500);
+}
+
+function showFieldSuccess(input, formGroup) {
+    formGroup.classList.remove('error');
+    formGroup.classList.add('success');
+    
+    // Remover mensajes anteriores
+    const existingMessage = formGroup.querySelector('.error-message, .success-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    // Agregar mensaje de éxito
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-message';
+    successDiv.innerHTML = `<i class="fas fa-check-circle"></i> Correcto`;
+    formGroup.appendChild(successDiv);
+}
+
+function clearFieldError(input, formGroup) {
+    formGroup.classList.remove('error', 'success');
+    const message = formGroup.querySelector('.error-message, .success-message');
+    if (message) {
+        message.remove();
+    }
+}
 
 // Mejorar rendimiento con throttling
 function throttle(func, limit) {
