@@ -270,33 +270,267 @@ document.addEventListener('DOMContentLoaded', () => {
         statObserver.observe(stat);
     });
     
-    // Efecto de escritura para el título principal
+    // Efecto de escritura para el título principal - MEJORADO CON CURSOR
     const heroTitle = document.querySelector('.hero-content h1');
     if (heroTitle) {
-        const text = heroTitle.innerHTML;
-        heroTitle.innerHTML = '';
-        let index = 0;
+        const originalHTML = heroTitle.innerHTML;
         
-        const typeWriter = () => {
-            if (index < text.length) {
-                heroTitle.innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 50);
-            }
-        };
+        // Separar el texto normal del texto con gradiente
+        const textParts = originalHTML.split('<span class="gradient-text">');
+        const normalText = textParts[0];
+        const gradientPart = textParts[1];
         
-        setTimeout(typeWriter, 1000);
+        if (gradientPart) {
+            const gradientText = gradientPart.split('</span>')[0];
+            const remainingText = gradientPart.split('</span>')[1] || '';
+            
+            heroTitle.innerHTML = '';
+            heroTitle.classList.add('typing-active');
+            let normalIndex = 0;
+            let gradientIndex = 0;
+            let remainingIndex = 0;
+            let currentPhase = 'normal';
+            
+            const typeWriter = () => {
+                if (currentPhase === 'normal' && normalIndex < normalText.length) {
+                    heroTitle.innerHTML = normalText.slice(0, normalIndex + 1);
+                    normalIndex++;
+                    setTimeout(typeWriter, 60);
+                } else if (currentPhase === 'normal' && normalIndex >= normalText.length) {
+                    currentPhase = 'gradient';
+                    heroTitle.innerHTML = normalText + '<span class="gradient-text"></span>';
+                    setTimeout(typeWriter, 100);
+                } else if (currentPhase === 'gradient' && gradientIndex < gradientText.length) {
+                    const currentGradientText = gradientText.slice(0, gradientIndex + 1);
+                    heroTitle.innerHTML = normalText + '<span class="gradient-text">' + currentGradientText + '</span>';
+                    gradientIndex++;
+                    setTimeout(typeWriter, 60);
+                } else if (currentPhase === 'gradient' && gradientIndex >= gradientText.length) {
+                    currentPhase = 'remaining';
+                    setTimeout(typeWriter, 100);
+                } else if (currentPhase === 'remaining' && remainingIndex < remainingText.length) {
+                    const currentRemainingText = remainingText.slice(0, remainingIndex + 1);
+                    heroTitle.innerHTML = normalText + '<span class="gradient-text">' + gradientText + '</span>' + currentRemainingText;
+                    remainingIndex++;
+                    setTimeout(typeWriter, 60);
+                } else {
+                    // Animación completada
+                    setTimeout(() => {
+                        heroTitle.classList.remove('typing-active');
+                        heroTitle.classList.add('typing-complete');
+                    }, 500);
+                }
+            };
+            
+            setTimeout(typeWriter, 1200);
+        } else {
+            // Si no hay gradiente, usar el método simple
+            heroTitle.innerHTML = '';
+            heroTitle.classList.add('typing-active');
+            let index = 0;
+            
+            const simpleTypeWriter = () => {
+                if (index < normalText.length) {
+                    heroTitle.innerHTML += normalText.charAt(index);
+                    index++;
+                    setTimeout(simpleTypeWriter, 60);
+                } else {
+                    setTimeout(() => {
+                        heroTitle.classList.remove('typing-active');
+                        heroTitle.classList.add('typing-complete');
+                    }, 500);
+                }
+            };
+            
+            setTimeout(simpleTypeWriter, 1200);
+        }
     }
     
-    // Parallax suave para elementos flotantes
-    window.addEventListener('scroll', () => {
+    // Parallax mejorado para elementos flotantes
+    window.addEventListener('scroll', throttle(() => {
         const scrolled = window.pageYOffset;
         const parallaxElements = document.querySelectorAll('.floating-element');
+        const rate = scrolled * -0.3;
         
         parallaxElements.forEach((element, index) => {
-            const speed = 0.5 + (index * 0.2);
-            element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            const speed = 0.3 + (index * 0.15);
+            const yPos = -(scrolled * speed);
+            const rotation = scrolled * 0.05 * (index + 1);
+            const scale = 1 + (Math.sin(scrolled * 0.001 + index) * 0.1);
+            
+            element.style.transform = `translateY(${yPos}px) rotate(${rotation}deg) scale(${scale})`;
         });
+        
+        // Parallax para la imagen del about
+        const aboutImage = document.querySelector('.about-image i');
+        if (aboutImage) {
+            const aboutSection = document.querySelector('.about');
+            const rect = aboutSection.getBoundingClientRect();
+            
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                const rotateY = (scrollPercent - 0.5) * 30;
+                const translateY = Math.sin(scrollPercent * Math.PI) * 20;
+                
+                aboutImage.style.transform = `translateY(${translateY}px) rotateY(${rotateY}deg) scale(${1 + scrollPercent * 0.1})`;
+            }
+        }
+    }, 16));
+    
+    // Intersection Observer mejorado para animaciones
+    const enhancedObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                
+                // Animar elementos hijos con stagger effect
+                const children = entry.target.querySelectorAll('.service-card, .portfolio-item, .feature, .contact-item');
+                children.forEach((child, index) => {
+                    setTimeout(() => {
+                        child.style.opacity = '1';
+                        child.style.transform = 'translateY(0) scale(1)';
+                        child.classList.add('animate-in');
+                    }, index * 200);
+                });
+                
+                // Efectos especiales para secciones específicas
+                if (entry.target.classList.contains('about')) {
+                    const aboutImage = entry.target.querySelector('.about-image i');
+                    if (aboutImage) {
+                        setTimeout(() => {
+                            aboutImage.style.animation = 'computerFloat 6s ease-in-out infinite';
+                        }, 500);
+                    }
+                }
+                
+                if (entry.target.classList.contains('contact')) {
+                    const formElements = entry.target.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form button');
+                    formElements.forEach((element, index) => {
+                        setTimeout(() => {
+                            element.style.opacity = '1';
+                            element.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    });
+                }
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
+    
+    // Observar todas las secciones principales
+    document.querySelectorAll('.services, .portfolio, .about, .contact, .footer').forEach(section => {
+        section.classList.add('reveal-on-scroll');
+        enhancedObserver.observe(section);
+    });
+    
+    // Efecto de mouse move para elementos interactivos
+    document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+        
+        // Efecto parallax sutil para elementos flotantes
+        const floatingElements = document.querySelectorAll('.floating-element');
+        floatingElements.forEach((element, index) => {
+            const speed = (index + 1) * 0.5;
+            const x = (mouseX - 0.5) * speed;
+            const y = (mouseY - 0.5) * speed;
+            
+            element.style.transform += ` translate(${x}px, ${y}px)`;
+        });
+        
+        // Efecto sutil para la imagen del about
+        const aboutImage = document.querySelector('.about-image i');
+        if (aboutImage) {
+            const x = (mouseX - 0.5) * 10;
+            const y = (mouseY - 0.5) * 10;
+            aboutImage.style.transform += ` translate(${x}px, ${y}px)`;
+        }
+    });
+    
+    // Efecto de hover mejorado para las tarjetas
+    document.querySelectorAll('.service-card, .portfolio-item').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-20px) scale(1.02) rotateX(5deg)';
+            card.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1) rotateX(0deg)';
+        });
+        
+        // Efecto de seguimiento del mouse
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            card.style.transform = `translateY(-20px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+    });
+    
+    // Animación de conteo mejorada con easing
+    function animateCounterEnhanced(element, target, duration = 2500) {
+        const originalText = element.textContent;
+        let startTime = null;
+        
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+        }
+        
+        function animate(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutCubic(progress);
+            
+            if (originalText.includes('/')) {
+                const parts = originalText.split('/');
+                const firstNumber = parseInt(parts[0]);
+                const secondPart = '/' + parts[1];
+                const currentValue = Math.floor(firstNumber * easedProgress);
+                element.textContent = currentValue + secondPart;
+            } else if (originalText.includes('%')) {
+                const number = parseInt(originalText.replace('%', ''));
+                const currentValue = Math.floor(number * easedProgress);
+                element.textContent = currentValue + '%';
+            } else if (originalText.includes('+')) {
+                const number = parseInt(originalText.replace('+', ''));
+                const currentValue = Math.floor(number * easedProgress);
+                element.textContent = currentValue + '+';
+            } else {
+                const number = parseInt(originalText);
+                const currentValue = Math.floor(number * easedProgress);
+                element.textContent = currentValue;
+            }
+            
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        }
+        
+        requestAnimationFrame(animate);
+    }
+    
+    // Reemplazar la función de contador existente
+    document.querySelectorAll('.stat-number').forEach(stat => {
+        const originalText = stat.textContent;
+        
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounterEnhanced(stat, originalText);
+                    statObserver.unobserve(stat);
+                }
+            });
+        });
+        
+        statObserver.observe(stat);
     });
 });
 
@@ -437,8 +671,10 @@ style.textContent = `
             max-width: 280px;
         }
         
-        .notification.show {
-            right: 5px;
+        .nav-menu {
+            height: calc(100vh - 70px);
+            top: 70px;
+            padding: 2rem 0;
         }
         
         .notification-content {
@@ -446,10 +682,8 @@ style.textContent = `
             gap: 10px;
         }
         
-        .nav-menu {
-            top: 70px;
-            height: calc(100vh - 70px);
-            padding: 2rem 0;
+        .notification.show {
+            right: 5px;
         }
         
         .nav-menu a {
