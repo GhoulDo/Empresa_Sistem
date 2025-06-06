@@ -66,7 +66,7 @@ contactForm.addEventListener('submit', function(e) {
     // Simular delay de envío
     setTimeout(() => {
         // Crear enlace mailto
-        const subject = encodeURIComponent(`Consulta de ${nombre} - EncisoSystem`);
+        const subject = encodeURIComponent(`Consulta de ${nombre} - Starry_System`);
         const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\n\nMensaje:\n${mensaje}`);
         const mailtoLink = `mailto:joooohanenciso@gmail.com?subject=${subject}&body=${body}`;
         
