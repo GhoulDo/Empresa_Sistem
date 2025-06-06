@@ -1,26 +1,44 @@
 :root {
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --accent-color: #06b6d4;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --error-color: #ef4444;
-    --dark-color: #0f172a;
-    --light-color: #f8fafc;
-    --text-primary: #0f172a;
-    --text-secondary: #64748b;
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-    --border-radius: 16px;
-    --border-radius-sm: 8px;
+    /* Paleta de colores inspirada en cerezos japoneses */
+    --primary-color: #e91e63; /* Rosa sakura vibrante */
+    --secondary-color: #f06292; /* Rosa sakura suave */
+    --accent-color: #4caf50; /* Verde hoja de cerezo */
+    --success-color: #66bb6a; /* Verde éxito natural */
+    --warning-color: #ff7043; /* Naranja cálido */
+    --error-color: #ef5350; /* Rojo suave */
+    --dark-color: #2d2d2d; /* Gris carbón suave */
+    --light-color: #fdf7f7; /* Rosa muy claro, casi blanco */
+    --text-primary: #2d2d2d;
+    --text-secondary: #6a4c4c; /* Marrón tierra suave */
+    
+    /* Gradientes inspirados en sakura */
+    --gradient-primary: linear-gradient(135deg, #f8bbd9 0%, #e91e63 50%, #c2185b 100%);
+    --gradient-secondary: linear-gradient(135deg, #f8bbd9 0%, #f06292 50%, #e91e63 100%);
+    --gradient-accent: linear-gradient(135deg, #81c784 0%, #4caf50 100%);
+    --gradient-sunset: linear-gradient(135deg, #ffb74d 0%, #ff7043 50%, #e91e63 100%);
+    
+    /* Gradientes especiales para hero */
+    --gradient-hero: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 25%, #f06292 50%, #e91e63 75%, #c2185b 100%);
+    --gradient-card: linear-gradient(135deg, #ffffff 0%, #fce4ec 100%);
+    
+    /* Sombras con tonos sakura */
+    --shadow-sm: 0 1px 3px 0 rgba(233, 30, 99, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(233, 30, 99, 0.15);
+    --shadow-lg: 0 10px 15px -3px rgba(233, 30, 99, 0.2);
+    --shadow-xl: 0 20px 25px -5px rgba(233, 30, 99, 0.25);
+    --shadow-2xl: 0 25px 50px -12px rgba(233, 30, 99, 0.3);
+    
+    /* Colores adicionales inspirados en la naturaleza japonesa */
+    --bamboo-green: #8bc34a;
+    --cherry-blossom: #ffc1cc;
+    --moss-green: #689f38;
+    --soft-peach: #ffccbc;
+    --autumn-leaf: #ff8a65;
+    
+    --border-radius: 20px;
+    --border-radius-sm: 12px;
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --blur: blur(16px);
+    --blur: blur(20px);
 }
 
 * {
@@ -56,12 +74,13 @@ body {
     display: inline-block;
 }
 
-/* Cursor de escritura animado */
+/* Cursor de escritura animado con color sakura */
 .hero-content h1::after {
     content: '|';
-    color: white;
+    color: var(--cherry-blossom);
     animation: blink 1s infinite;
     margin-left: 2px;
+    text-shadow: 0 0 10px rgba(255, 193, 204, 0.5);
 }
 
 @keyframes blink {
@@ -84,7 +103,7 @@ body {
     display: inline-block;
     background: var(--gradient-primary);
     color: white;
-    padding: 10px 24px;
+    padding: 12px 28px;
     border-radius: 50px;
     font-size: 14px;
     font-weight: 600;
@@ -94,6 +113,7 @@ body {
     box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .section-badge::before {
@@ -103,7 +123,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
     transition: left 0.5s;
 }
 
@@ -127,17 +147,17 @@ body {
     line-height: 1.8;
 }
 
-/* Header mejorado */
+/* Header mejorado con tonos sakura */
 .header {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(253, 247, 247, 0.95);
     backdrop-filter: var(--blur);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(233, 30, 99, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     transition: var(--transition);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(248, 187, 217, 0.3);
 }
 
 .navbar {
@@ -164,6 +184,7 @@ body {
     color: var(--primary-color);
     margin-right: 8px;
     font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
 }
 
 .nav-menu {
@@ -226,14 +247,14 @@ body {
     border-radius: 3px;
 }
 
-/* Hero Section mejorado */
+/* Hero Section con gradiente sakura mejorado */
 .hero {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: var(--gradient-primary);
+    background: var(--gradient-hero);
 }
 
 .hero-background {
@@ -262,10 +283,11 @@ body {
 
 .floating-element {
     position: absolute;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 193, 204, 0.2);
     border-radius: 50%;
     animation: float 8s ease-in-out infinite;
     backdrop-filter: var(--blur);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .floating-element:nth-child(1) {
@@ -274,6 +296,8 @@ body {
     top: 15%;
     left: 8%;
     animation-delay: 0s;
+    background: radial-gradient(circle, rgba(255, 193, 204, 0.3), rgba(233, 30, 99, 0.1));
+    box-shadow: 0 0 30px rgba(233, 30, 99, 0.2);
 }
 
 .floating-element:nth-child(2) {
@@ -282,6 +306,8 @@ body {
     top: 70%;
     right: 10%;
     animation-delay: 3s;
+    background: radial-gradient(circle, rgba(240, 98, 146, 0.25), rgba(194, 24, 91, 0.1));
+    box-shadow: 0 0 25px rgba(240, 98, 146, 0.2);
 }
 
 .floating-element:nth-child(3) {
@@ -290,6 +316,8 @@ body {
     bottom: 15%;
     left: 15%;
     animation-delay: 6s;
+    background: radial-gradient(circle, rgba(255, 204, 188, 0.3), rgba(255, 138, 101, 0.1));
+    box-shadow: 0 0 35px rgba(255, 138, 101, 0.2);
 }
 
 @keyframes float {
@@ -338,15 +366,16 @@ body {
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     box-shadow: var(--shadow-lg);
     animation: slideInDown 1s ease-out;
 }
 
 .hero-badge i {
     margin-right: 8px;
-    color: #fbbf24;
+    color: var(--cherry-blossom);
     animation: pulse 2s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(255, 193, 204, 0.5);
 }
 
 @keyframes pulse {
@@ -479,6 +508,7 @@ body {
     background: rgba(255, 255, 255, 0.95);
     color: var(--dark-color);
     box-shadow: var(--shadow-xl);
+    border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .btn-primary::before {
@@ -506,7 +536,7 @@ body {
 .btn-secondary {
     background: rgba(255, 255, 255, 0.15);
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     backdrop-filter: var(--blur);
 }
 
@@ -514,6 +544,7 @@ body {
     background: rgba(255, 255, 255, 0.25);
     transform: translateY(-3px);
     box-shadow: var(--shadow-xl);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .hero-image {
@@ -565,14 +596,14 @@ body {
 .tech-badge {
     background: rgba(255, 255, 255, 0.95);
     color: var(--dark-color);
-    padding: 8px 16px;
-    border-radius: 25px;
+    padding: 10px 18px;
+    border-radius: 30px;
     font-size: 12px;
     font-weight: 700;
     box-shadow: var(--shadow-lg);
     animation: fadeInRight 1s ease-out forwards;
     backdrop-filter: var(--blur);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid var(--cherry-blossom);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -624,10 +655,10 @@ body {
     60% { transform: translateY(-8px); }
 }
 
-/* Services mejorado */
+/* Services mejorado con paleta sakura */
 .services {
     padding: 140px 0;
-    background: var(--light-color);
+    background: linear-gradient(135deg, var(--light-color) 0%, #ffffff 100%);
     position: relative;
 }
 
@@ -643,17 +674,17 @@ body {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2.5rem;
 }
 
 .service-card {
-    background: white;
+    background: var(--gradient-card);
     border-radius: var(--border-radius);
     padding: 3rem;
     box-shadow: var(--shadow-lg);
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 2px solid rgba(248, 187, 217, 0.3);
     position: relative;
     overflow: hidden;
     transform: translateY(0);
@@ -677,13 +708,15 @@ body {
 
 .service-card:hover {
     transform: translateY(-20px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 30px 60px rgba(233, 30, 99, 0.2);
+    border-color: var(--primary-color);
 }
 
 .service-card.premium {
-    border: 2px solid var(--primary-color);
+    border: 3px solid var(--primary-color);
     position: relative;
-    background: linear-gradient(135deg, #fff 0%, #f8faff 100%);
+    background: linear-gradient(135deg, #fff 0%, #fce4ec 100%);
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.15);
 }
 
 .service-card.premium::after {
@@ -713,6 +746,7 @@ body {
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-md);
 }
 
 .service-icon::before {
@@ -776,16 +810,16 @@ body {
     font-weight: 800;
     color: var(--primary-color);
     padding: 16px 24px;
-    background: rgba(99, 102, 241, 0.1);
+    background: rgba(233, 30, 99, 0.1);
     border-radius: var(--border-radius-sm);
     text-align: center;
-    border: 2px solid rgba(99, 102, 241, 0.2);
+    border: 2px solid rgba(233, 30, 99, 0.2);
 }
 
 /* Portfolio mejorado */
 .portfolio {
     padding: 140px 0;
-    background: white;
+    background: linear-gradient(135deg, #ffffff 0%, var(--light-color) 100%);
 }
 
 .portfolio-grid {
@@ -800,13 +834,14 @@ body {
     overflow: hidden;
     box-shadow: var(--shadow-lg);
     transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 2px solid rgba(248, 187, 217, 0.2);
     position: relative;
 }
 
 .portfolio-item:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-2xl);
+    border-color: var(--primary-color);
 }
 
 .portfolio-image {
@@ -861,21 +896,21 @@ body {
 }
 
 .portfolio-tags span {
-    background: rgba(99, 102, 241, 0.1);
+    background: rgba(233, 30, 99, 0.1);
     color: var(--primary-color);
-    padding: 6px 16px;
+    padding: 8px 18px;
     border-radius: 25px;
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    border: 2px solid rgba(233, 30, 99, 0.2);
 }
 
 /* About mejorado */
 .about {
     padding: 140px 0;
-    background: var(--light-color);
+    background: linear-gradient(135deg, var(--light-color) 0%, #ffffff 50%, var(--light-color) 100%);
 }
 
 .about-content {
@@ -908,17 +943,18 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
-    padding: 1rem;
+    padding: 1.2rem;
     background: white;
     border-radius: var(--border-radius-sm);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    border: 2px solid rgba(248, 187, 217, 0.2);
 }
 
 .feature:hover {
     transform: translateX(15px) scale(1.02);
-    background: linear-gradient(135deg, white 0%, #f8faff 100%);
-    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.1);
+    background: var(--gradient-card);
+    box-shadow: 0 15px 35px rgba(233, 30, 99, 0.15);
     border-left: 4px solid var(--primary-color);
 }
 
@@ -947,7 +983,7 @@ body {
     animation: computerFloat 6s ease-in-out infinite;
     position: relative;
     transform-style: preserve-3d;
-    filter: drop-shadow(0 10px 20px rgba(99, 102, 241, 0.3));
+    filter: drop-shadow(0 10px 20px rgba(233, 30, 99, 0.3));
 }
 
 .about-image::before {
@@ -957,7 +993,7 @@ body {
     left: 50%;
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(233, 30, 99, 0.2) 0%, transparent 70%);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     animation: pulseGlow 4s ease-in-out infinite;
@@ -979,19 +1015,19 @@ body {
 @keyframes computerFloat {
     0%, 100% { 
         transform: translateY(0px) rotateY(0deg) scale(1);
-        filter: drop-shadow(0 10px 20px rgba(99, 102, 241, 0.3));
+        filter: drop-shadow(0 10px 20px rgba(233, 30, 99, 0.3));
     }
     25% { 
         transform: translateY(-20px) rotateY(5deg) scale(1.05);
-        filter: drop-shadow(0 15px 30px rgba(99, 102, 241, 0.4));
+        filter: drop-shadow(0 15px 30px rgba(233, 30, 99, 0.4));
     }
     50% { 
         transform: translateY(-10px) rotateY(0deg) scale(1.02);
-        filter: drop-shadow(0 20px 40px rgba(99, 102, 241, 0.5));
+        filter: drop-shadow(0 20px 40px rgba(233, 30, 99, 0.5));
     }
     75% { 
         transform: translateY(-25px) rotateY(-5deg) scale(1.05);
-        filter: drop-shadow(0 15px 30px rgba(99, 102, 241, 0.4));
+        filter: drop-shadow(0 15px 30px rgba(233, 30, 99, 0.4));
     }
 }
 
@@ -1056,12 +1092,12 @@ body {
 /* Animación mejorada para las tarjetas de servicio */
 .service-card:hover {
     transform: translateY(-20px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 30px 60px rgba(233, 30, 99, 0.2);
 }
 
 .service-card:hover .service-icon {
     transform: scale(1.15) rotate(5deg);
-    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 15px 30px rgba(233, 30, 99, 0.4);
 }
 
 .service-icon {
@@ -1155,7 +1191,7 @@ body {
 
 .tech-badge:hover {
     transform: scale(1.1) rotate(-2deg);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
     background: var(--gradient-primary);
     color: white;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1233,7 +1269,7 @@ body {
 
 .contact-form input:focus, .contact-form textarea:focus {
     transform: scale(1.02);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Animaciones para elementos de contacto */
@@ -1295,7 +1331,7 @@ body {
 .social-links a:hover {
     transform: translateY(-8px) scale(1.2) rotate(5deg);
     background: var(--gradient-primary);
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.4);
 }
 
 /* Animación de carga para la imagen principal */
@@ -1325,17 +1361,17 @@ body {
 
 .floating-element:nth-child(1) {
     animation-delay: 0s;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(99, 102, 241, 0.1));
+    background: radial-gradient(circle, rgba(255, 193, 204, 0.3), rgba(233, 30, 99, 0.1));
 }
 
 .floating-element:nth-child(2) {
     animation-delay: 3s;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), rgba(139, 92, 246, 0.1));
+    background: radial-gradient(circle, rgba(240, 98, 146, 0.25), rgba(194, 24, 91, 0.1));
 }
 
 .floating-element:nth-child(3) {
     animation-delay: 6s;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.25), rgba(6, 182, 212, 0.1));
+    background: radial-gradient(circle, rgba(255, 204, 188, 0.3), rgba(255, 138, 101, 0.1));
 }
 
 @keyframes enhancedFloat {
@@ -1382,7 +1418,7 @@ body {
 .feature:hover {
     transform: translateX(15px) scale(1.02);
     background: linear-gradient(135deg, white 0%, #f8faff 100%);
-    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 15px 35px rgba(233, 30, 99, 0.1);
     border-left: 4px solid var(--primary-color);
 }
 
@@ -1414,10 +1450,10 @@ body {
     }
 }
 
-/* Contact mejorado - CORREGIDO */
+/* Contact mejorado con paleta sakura */
 .contact {
     padding: 140px 0;
-    background: white;
+    background: linear-gradient(135deg, #ffffff 0%, var(--light-color) 100%);
     position: relative;
 }
 
@@ -1469,10 +1505,10 @@ body {
     display: flex;
     align-items: flex-start;
     padding: 2.5rem;
-    background: var(--light-color);
+    background: var(--gradient-card);
     border-radius: var(--border-radius);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 1px solid rgba(99, 102, 241, 0.1);
+    border: 2px solid rgba(248, 187, 217, 0.3);
     position: relative;
     overflow: hidden;
     transform: translateX(-30px);
@@ -1498,7 +1534,7 @@ body {
 .contact-item:hover {
     transform: translateX(15px) scale(1.02);
     background: white;
-    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.15);
     border-color: var(--primary-color);
 }
 
@@ -1532,13 +1568,13 @@ body {
     font-weight: 500;
 }
 
-/* Formulario de contacto completamente rediseñado */
+/* Formulario rediseñado con paleta sakura */
 .contact-form {
-    background: linear-gradient(135deg, var(--light-color) 0%, white 100%);
+    background: var(--gradient-card);
     padding: 3.5rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.1);
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.1);
+    border: 2px solid rgba(248, 187, 217, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -1609,7 +1645,7 @@ body {
 .contact-form textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
     transform: translateY(-2px);
     background: white;
 }
@@ -1639,7 +1675,7 @@ body {
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 10px 20px rgba(233, 30, 99, 0.3);
     min-width: 200px;
 }
 
@@ -1660,7 +1696,7 @@ body {
 
 .contact-form button:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 15px 30px rgba(233, 30, 99, 0.4);
 }
 
 .contact-form button:active {
@@ -1678,17 +1714,17 @@ body {
     font-size: 1rem;
 }
 
-/* Estados de validación */
+/* Estados de validación con nueva paleta */
 .form-group.error input,
 .form-group.error textarea {
     border-color: var(--error-color);
-    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+    box-shadow: 0 0 0 4px rgba(239, 83, 80, 0.1);
 }
 
 .form-group.success input,
 .form-group.success textarea {
     border-color: var(--success-color);
-    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 0 0 4px rgba(102, 187, 106, 0.1);
 }
 
 .error-message {
@@ -1716,9 +1752,9 @@ body {
     75% { transform: translateX(5px); }
 }
 
-/* Footer mejorado */
+/* Footer mejorado con paleta sakura */
 .footer {
-    background: var(--dark-color);
+    background: linear-gradient(135deg, var(--dark-color) 0%, #3a2a2a 100%);
     color: white;
     padding: 5rem 0 2rem;
     position: relative;
@@ -1771,7 +1807,7 @@ body {
 .social-links a {
     width: 45px;
     height: 45px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(233, 30, 99, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1779,12 +1815,13 @@ body {
     color: white;
     transition: var(--transition);
     backdrop-filter: var(--blur);
+    border: 2px solid rgba(233, 30, 99, 0.3);
 }
 
 .social-links a:hover {
     transform: translateY(-8px) scale(1.2) rotate(5deg);
     background: var(--gradient-primary);
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.4);
 }
 
 .contact-info-footer p {
@@ -1831,7 +1868,7 @@ body {
 
 .newsletter button:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
 }
 
 .footer-bottom {
@@ -2074,5 +2111,19 @@ body {
     .nav-menu a {
         font-size: 1.1rem;
         margin: 0 1rem;
+    }
+}
+
+/* Responsive para servicios */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
