@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/img/ico.png" type="image/x-icon">
+            <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <!-- Header -->
@@ -14,14 +16,14 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <h2><i class="fas fa-star"></i> Starry_System</h2>
+                    <h2><i class="fas fa-star"></i>Starry System</h2>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#inicio" title="Nuestro menu de inicio">Inicio</a></li>
+                    <li><a href="#servicios" title="Nuestros distintos servicios">Servicios</a></li>
+                    <li><a href="#portfolio" title="Mira nuestros increibles proyectos ✔️">Portafolio</a></li>
+                    <li><a href="#nosotros" title="¿Porque StarrySystem?">Nosotros</a></li>
+                    <li><a href="#contacto" title="Completa el formulario para agendar proyecto">Contacto</a></li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -77,19 +79,19 @@
             </div>
             <div class="hero-image">
                 <div class="image-container">
-                    <img src="Copilot_20250606_191313.png" alt="Desarrollo de Software - Starry_System" class="hero-main-image">
+                    <img src="/assets/img/starrysystem.png" alt="Logo colorido de nuestra empresa Starry_System" class="hero-main-image" title="Nuestro Stack de tecnologías">
                     <div class="tech-badges">
-                        <div class="tech-badge">React</div>
-                        <div class="tech-badge">Node.js</div>
-                        <div class="tech-badge">Python</div>
-                        <div class="tech-badge">SQL</div>
+                        <div class="tech-badge bold" id="react" title="Frameworks como nextjs">React</div>
+                        <div class="tech-badge bold" id="node" title="Frameworks como express | nestjs">Node.js</div>
+                        <div class="tech-badge bold" id="python" title="Frameworks como flask | fastAPI">Python</div>
+                        <div class="tech-badge bold" id="sql" title="Bases de datos">SQL</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
+        <div class="scroll-indicator" id="scrollIndicator">
+            <div class="scroll-arrow" id="scrollArrow">
+                <i class="fas fa-chevron-down transition-transform duration-500 ease-in-out" id="scrollIcon"></i>
             </div>
         </div>
     </section>
@@ -245,7 +247,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Sobre Starry_System</h2>
+                    <h2>Sobre <i>Starry System</i></h2>
                     <p>Somos una empresa de desarrollo de software ubicada en Villavicencio, Meta, especializada en crear soluciones tecnológicas innovadoras y landing pages profesionales para negocios locales y regionales.</p>
                     <p>Nos caracterizamos por desarrollar software de alta calidad, especialmente orientado a restaurantes y tiendas, landing pages optimizadas para conversión, así como aplicaciones personalizadas que se adaptan perfectamente a las necesidades de cada cliente.</p>
                     <div class="features">
@@ -379,7 +381,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Starry_System. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Starry_System. Todos los derechos reservados.</p>
                 <div class="footer-links">
                     <a href="#">Términos de Servicio</a>
                     <a href="#">Política de Privacidad</a>

@@ -15,6 +15,66 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Funcionalidad mejorada para la flecha de scroll
+const scrollIndicator = document.getElementById('scrollIndicator');
+const scrollArrow = document.getElementById('scrollArrow');
+const scrollIcon = document.getElementById('scrollIcon');
+let isScrolledDown = false;
+
+if (scrollArrow) {
+    scrollArrow.addEventListener('click', function() {
+        if (isScrolledDown) {
+            // Scroll hacia arriba
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Scroll hacia abajo
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
+
+// Detectar scroll para cambiar la flecha
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.body.scrollHeight;
+    
+    // Si hemos scrolleado más del 30% de la página
+    if (scrollPosition > windowHeight * 0.3) {
+        if (!isScrolledDown) {
+            isScrolledDown = true;
+            scrollIndicator.classList.add('scrolled');
+            scrollIcon.classList.remove('fa-chevron-down');
+            scrollIcon.classList.add('fa-chevron-up');
+            
+            // Animación de rotación suave
+            scrollArrow.style.transform = 'rotate(180deg)';
+            setTimeout(() => {
+                scrollArrow.style.transform = 'rotate(0deg)';
+            }, 300);
+        }
+    } else {
+        if (isScrolledDown) {
+            isScrolledDown = false;
+            scrollIndicator.classList.remove('scrolled');
+            scrollIcon.classList.remove('fa-chevron-up');
+            scrollIcon.classList.add('fa-chevron-down');
+            
+            // Animación de rotación suave
+            scrollArrow.style.transform = 'rotate(180deg)';
+            setTimeout(() => {
+                scrollArrow.style.transform = 'rotate(0deg)';
+            }, 300);
+        }
+    }
+});
+
 // Menú hamburguesa mejorado
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
