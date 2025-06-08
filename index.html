@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon mejorado para GitHub Pages -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/ico.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/ico.png">
+    <link rel="shortcut icon" href="assets/img/ico.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/img/ico.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <!-- Header -->
@@ -14,14 +22,14 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <h2><i class="fas fa-star"></i> Starry_System</h2>
+                    <h2><i class="fas fa-star"></i>Starry System</h2>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#inicio" title="Nuestro menu de inicio">Inicio</a></li>
+                    <li><a href="#servicios" title="Nuestros distintos servicios">Servicios</a></li>
+                    <li><a href="#portfolio" title="Mira nuestros increibles proyectos ✔️">Portafolio</a></li>
+                    <li><a href="#nosotros" title="¿Porque StarrySystem?">Nosotros</a></li>
+                    <li><a href="#contacto" title="Completa el formulario para agendar proyecto">Contacto</a></li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -101,13 +109,18 @@
             <div class="hero-image">
                 <div class="image-container">
                     <img src="Copilot_20250606_191313.png" alt="Desarrollo de Software - Starry_System" class="hero-main-image">
-                    <!-- Badges removidos de aquí -->
+                    <div class="tech-badges">
+                        <div class="tech-badge">React</div>
+                        <div class="tech-badge">Node.js</div>
+                        <div class="tech-badge">Python</div>
+                        <div class="tech-badge">SQL</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
+        <div class="scroll-indicator" id="scrollIndicator">
+            <div class="scroll-arrow" id="scrollArrow">
+                <i class="fas fa-chevron-down transition-transform duration-500 ease-in-out" id="scrollIcon"></i>
             </div>
         </div>
     </section>
@@ -135,6 +148,9 @@
                             <li><i class="fas fa-check"></i> Backend Python escalable</li>
                         </ul>
                         <div class="service-price">Desde $500.000</div>
+                        <div class="service-action">
+                            <a href="software-restaurantes.html" class="btn-service">Ver Detalles</a>
+                        </div>
                     </div>
                 </div>
                 <div class="service-card">
@@ -151,6 +167,28 @@
                             <li><i class="fas fa-check"></i> APIs robustas</li>
                         </ul>
                         <div class="service-price">Desde $400.000</div>
+                        <div class="service-action">
+                            <a href="software-tiendas.html" class="btn-service">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Software para Ferreterías</h3>
+                        <p>Sistema especializado para ferreterías con gestión de inventario por categorías, control de proveedores, códigos de barras y manejo de productos por peso y unidad.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Inventario categorizado</li>
+                            <li><i class="fas fa-check"></i> Códigos de barras</li>
+                            <li><i class="fas fa-check"></i> Control de proveedores</li>
+                            <li><i class="fas fa-check"></i> Ventas por peso/unidad</li>
+                        </ul>
+                        <div class="service-price">Desde $450.000</div>
+                        <div class="service-action">
+                            <a href="software-ferreterias.html" class="btn-service">Ver Detalles</a>
+                        </div>
                     </div>
                 </div>
                 <div class="service-card">
@@ -167,6 +205,9 @@
                             <li><i class="fas fa-check"></i> Clean Architecture</li>
                         </ul>
                         <div class="service-price">Cotización personalizada</div>
+                        <div class="service-action">
+                            <a href="software-personalizado.html" class="btn-service">Ver Detalles</a>
+                        </div>
                     </div>
                 </div>
                 <div class="service-card">
@@ -183,6 +224,9 @@
                             <li><i class="fas fa-check"></i> Rendimiento optimizado</li>
                         </ul>
                         <div class="service-price">Desde $200.000</div>
+                        <div class="service-action">
+                            <a href="landing-pages.html" class="btn-service">Ver Detalles</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -264,8 +308,8 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Sobre Starry_System</h2>
-                    <p>Somos una empresa de desarrollo de software ubicada en Villavicencio, Meta, especializada en crear soluciones tecnológicas innovadoras utilizando TypeScript, Python, arquitectura hexagonal y microservicios.</p>
-                    <p>Nos caracterizamos por desarrollar software de alta calidad con arquitecturas limpias y escalables, especialmente orientado a restaurantes y tiendas, landing pages modernas, así como aplicaciones empresariales que siguen las mejores prácticas de desarrollo.</p>
+                    <p>Somos una empresa de desarrollo de software ubicada en Villavicencio, Meta, especializada en crear soluciones tecnológicas innovadoras y landing pages profesionales para negocios locales y regionales.</p>
+                    <p>Nos caracterizamos por desarrollar software de alta calidad, especialmente orientado a restaurantes y tiendas, landing pages optimizadas para conversión, así como aplicaciones personalizadas que se adaptan perfectamente a las necesidades de cada cliente.</p>
                     <div class="features">
                         <div class="feature">
                             <i class="fas fa-check-circle"></i>
@@ -397,7 +441,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Starry_System. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Starry_System. Todos los derechos reservados.</p>
                 <div class="footer-links">
                     <a href="#">Términos de Servicio</a>
                     <a href="#">Política de Privacidad</a>

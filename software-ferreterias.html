@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software para Ferreterías - Starry System</title>
+    <meta name="description" content="Sistema integral para ferreterías con gestión de inventarios, ventas y clientes">
+    <link rel="stylesheet" href="syleFer.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/ico.png">
+    <style>
+        /* Estilos de emergencia para asegurar visibilidad */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden;
+        }
+        .module-section { 
+            opacity: 1 !important; 
+            transform: translateY(0) !important; 
+            display: block !important;
+        }
+        .header { 
+            position: fixed !important; 
+            top: 0 !important; 
+            width: 100% !important; 
+            z-index: 1000 !important; 
+        }
+        main { 
+            margin-top: 0; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2><a href="index.html"><i class="fas fa-star"></i>Starry System</a></h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#portfolio">Portafolio</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Envolver el contenido principal -->
+    <main>
+        <!-- Hero Section -->
+        <section class="ferreteria-hero">
+            <div class="hero-background">
+                <div class="hero-patterns"></div>
+                <div class="hero-gradient"></div>
+            </div>
+            <div class="container">
+                <div class="ferreteria-hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-tools"></i>
+                        <span>Sistema de Nueva Generación</span>
+                    </div>
+                    <h1>Ferretería Management System</h1>
+                    <p>Sistema integral de última generación desarrollado con <strong>Next.js 14</strong> y <strong>TypeScript</strong>, que utiliza <strong>React 18</strong> y <strong>Tailwind CSS</strong> para digitalizar y optimizar completamente las operaciones de su ferretería. Incluye gestión avanzada de inventarios con control de stock en tiempo real, ventas con facturación automática, CRM especializado, dashboard analítico con métricas de rendimiento, y arquitectura escalable con backend en <strong>Node.js</strong> y base de datos <strong>PostgreSQL</strong>.</p>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Tipos de Usuario</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-modules"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">7</span>
+                                <span class="stat-label">Módulos Completos</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Personalizable</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#login-module" class="btn-hero primary">
+                            <i class="fas fa-play"></i>
+                            Ver Demo del Sistema
+                        </a>
+                        <a href="index.html#contacto" class="btn-hero secondary">
+                            <i class="fas fa-phone"></i>
+                            Solicitar Cotización
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sistema de Login -->
+        <section id="login-module" class="module-section">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-badge">01</span>
+                    <h2><i class="fas fa-sign-in-alt"></i> Sistema de Autenticación Segura</h2>
+                    <p>Login profesional con roles diferenciados y estado del servidor en tiempo real</p>
+                </div>
+                <div class="module-showcase">
+                    <div class="module-image">
+                        <div class="image-frame">
+                            <img src="assets/img/Ferreterialogin.png" alt="Sistema de Login - Ferretería Management" class="system-screenshot">
+                            <div class="image-overlay">
+                                <div class="zoom-icon">
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="image-details">
+                            <div class="detail-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Servidor Online</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Acceso Seguro</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <h3>Acceso Profesional y Seguro</h3>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Autenticación Robusta</h4>
+                                    <p>Sistema de login con credenciales encriptadas y validación de sesiones</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Rol Administrador</h4>
+                                    <p>Acceso completo a todos los módulos del sistema con permisos totales</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Rol Vendedor</h4>
+                                    <p>Acceso controlado a ventas, productos y consultas de clientes</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Estado del Sistema</h4>
+                                    <p>Monitoreo en tiempo real del estado del servidor y conexión</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Principal -->
+        <section class="module-section alternate">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-badge">02</span>
+                    <h2><i class="fas fa-tachometer-alt"></i> Dashboard Inteligente</h2>
+                    <p>Panel de control completo con métricas en tiempo real y análisis avanzados</p>
+                </div>
+                <div class="module-showcase reverse">
+                    <div class="module-content">
+                        <h3>Centro de Comando Empresarial</h3>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Analytics en Tiempo Real</h4>
+                                    <p>Métricas actualizadas instantáneamente con comparativas de rendimiento y tendencias de ventas</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Alertas Inteligentes</h4>
+                                    <p>Notificaciones automáticas de stock bajo y productos que requieren atención inmediata</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Panel de Control Unificado</h4>
+                                    <p>Vista centralizada de todos los aspectos críticos del negocio en una sola pantalla</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Reportes Visuales</h4>
+                                    <p>Gráficos interactivos y reportes automáticos para análisis de tendencias</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-image">
+                        <div class="image-frame dashboard-image">
+                            <img src="assets/img/DashboardFer.png" alt="Dashboard Principal - Ferretería Management" class="system-screenshot">
+                            <div class="image-overlay">
+                                <div class="zoom-icon">
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-highlights">
+                            <div class="highlight-badge success">
+                                <i class="fas fa-trending-up"></i>
+                                <span>Analytics Avanzados</span>
+                            </div>
+                            <div class="highlight-badge info">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Tiempo Real</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gestión de Productos -->
+        <section class="module-section">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-badge">03</span>
+                    <h2><i class="fas fa-cube"></i> Gestión Avanzada de Productos</h2>
+                    <p>Control total del inventario con valorización automática y alertas inteligentes</p>
+                </div>
+                <div class="module-showcase">
+                    <div class="module-image">
+                        <div class="image-frame products-image">
+                            <img src="assets/img/ProductosFer.png" alt="Gestión de Productos - Ferretería Management" class="system-screenshot">
+                            <div class="image-overlay">
+                                <div class="zoom-icon">
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-highlights">
+                            <div class="highlight-badge success">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Inventario Inteligente</span>
+                            </div>
+                            <div class="highlight-badge info">
+                                <i class="fas fa-calculator"></i>
+                                <span>Valorización Auto</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <h3>Inventario Inteligente y Automatizado</h3>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-layer-group"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Categorización Avanzada</h4>
+                                    <p>Organización automática por categorías: herramientas, materiales, pinturas, electricidad y más</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Valorización Automática</h4>
+                                    <p>Cálculo en tiempo real del valor total del inventario con actualizaciones instantáneas</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Búsqueda Inteligente</h4>
+                                    <p>Filtros avanzados por categoría, stock, precio y estado de productos</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-file-import"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Importación Masiva</h4>
+                                    <p>Carga de productos desde Excel con validación automática y control de errores</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gestión de Categorías -->
+        <section class="module-section alternate">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-badge">04</span>
+                    <h2><i class="fas fa-tags"></i> Sistema de Categorías</h2>
+                    <p>Organización profesional especializada para el sector ferretero</p>
+                </div>
+                <div class="module-showcase reverse">
+                    <div class="module-content">
+                        <h3>Clasificación Especializada</h3>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Categorías Especializadas</h4>
+                                    <p>Herramientas, Electricidad, Plomería, Pinturas, Construcción y más categorías específicas para ferreterías</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Análisis de Rentabilidad</h4>
+                                    <p>Valorización automática y análisis de productos por categoría con reportes de rentabilidad</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-sitemap"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Jerarquía Flexible</h4>
+                                    <p>Sistema de categorías y subcategorías adaptable a cualquier tipo de ferretería</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-filter"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Filtros Avanzados</h4>
+                                    <p>Búsqueda y filtrado inteligente por múltiples criterios de categorización</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-image">
+                        <div class="image-frame categories-image">
+                            <img src="assets/img/CategoriasFer.png" alt="Gestión de Categorías - Ferretería Management" class="system-screenshot">
+                            <div class="image-overlay">
+                                <div class="zoom-icon">
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sistema de Ventas -->
+        <section class="module-section">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-badge">05</span>
+                    <h2><i class="fas fa-shopping-cart"></i> Sistema de Ventas Completo</h2>
+                    <p>POS profesional con analytics en tiempo real y reportes detallados</p>
+                </div>
+                <div class="module-showcase">
+                    <div class="module-image">
+                        <div class="image-frame sales-image">
+                            <img src="assets/img/GestionVentasFer.png" alt="Sistema de Ventas - Ferretería Management" class="system-screenshot">
+                            <div class="image-overlay">
+                                <div class="zoom-icon">
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sales-highlights">
+                            <div class="sales-badge success">
+                                <i class="fas fa-chart-line"></i>
+                                <span>POS Inteligente</span>
+                            </div>
+                            <div class="sales-badge info">
+                                <i class="fas fa-receipt"></i>
+                                <span>Facturación Auto</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <h3>POS Inteligente con Analytics</h3>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-cash-register"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>POS Profesional</h4>
+                                    <p>Registro rápido de ventas con interfaz intuitiva, códigos de barras y búsqueda inteligente</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Gráficos de Tendencias</h4>
+                                    <p>Análisis visual de ventas con gráficos de tendencias y proyecciones de crecimiento</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-receipt"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Facturación Automática</h4>
+                                    <p>Generación automática de facturas con numeración secuencial y control fiscal</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Múltiples Formas de Pago</h4>
+                                    <p>Soporte para efectivo, tarjetas, transferencias y pagos digitales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gestión de Clientes -->
+        <section class="module-section alternate">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-badge">06</span>
+                    <h2><i class="fas fa-user-friends"></i> CRM para Ferreterías</h2>
+                    <p>Gestión completa de clientes con programa VIP y seguimiento de compras</p>
+                </div>
+                <div class="module-showcase reverse">
+                    <div class="module-content">
+                        <h3>CRM Especializado</h3>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Programa VIP</h4>
+                                    <p>Identificación automática de clientes VIP con descuentos especiales y atención personalizada</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Análisis de Comportamiento</h4>
+                                    <p>Tracking de gastos, patrones de compra y preferencias de productos por cliente</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Historial de Compras</h4>
+                                    <p>Registro completo de todas las transacciones y preferencias de cada cliente</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Contacto Inteligente</h4>
+                                    <p>Sistema de comunicación automatizada para ofertas y promociones personalizadas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-image">
+                        <div class="image-frame clients-image">
+                            <img src="assets/img/GestionclientesFer.png" alt="Gestión de Clientes - Ferretería Management" class="system-screenshot">
+                            <div class="image-overlay">
+                                <div class="zoom-icon">
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gestión de Usuarios -->
+        <section class="module-section">
+            <div class="container">
+                <div class="module-header">
+                    <span class="module-badge">07</span>
+                    <h2><i class="fas fa-users-cog"></i> Gestión de Usuarios</h2>
+                    <p>Control total de usuarios con roles diferenciados y permisos granulares</p>
+                </div>
+                <div class="module-showcase">
+                    <div class="module-image">
+                        <div class="image-frame">
+                            <img src="assets/img/Gestionusuarios.png" alt="Gestión de Usuarios - Ferretería Management" class="system-screenshot">
+                            <div class="image-overlay">
+                                <div class="zoom-icon">
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-content">
+                        <h3>Sistema Multi-Usuario Avanzado</h3>
+                        <div class="user-roles">
+                            <div class="role-card admin">
+                                <div class="role-icon">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="role-info">
+                                    <h4>Administrador</h4>
+                                    <span class="role-count">1 Usuario</span>
+                                    <p>Permisos completos del sistema</p>
+                                </div>
+                            </div>
+                            <div class="role-card seller">
+                                <div class="role-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="role-info">
+                                    <h4>Vendedor</h4>
+                                    <span class="role-count">1 Usuario</span>
+                                    <p>Personal de ventas</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Seguridad Avanzada</h4>
+                                    <p>Contraseñas encriptadas y validación de sesiones seguras</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-key"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Permisos Granulares</h4>
+                                    <p>Control detallado de acceso por módulo y funcionalidad</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Gestión Completa</h4>
+                                    <p>Crear, editar y eliminar usuarios con roles personalizados</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tecnologías -->
+        <section class="tech-section">
+            <div class="container">
+                <div class="tech-header">
+                    <h2>Stack Tecnológico de Vanguardia</h2>
+                    <p>Construido con las tecnologías más modernas y robustas del mercado para garantizar máximo rendimiento, escalabilidad y experiencia de usuario excepcional</p>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon nextjs">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Next.js 14 + TypeScript</h3>
+                        <p>Framework React de última generación con tipado estático para desarrollo robusto y escalable</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon react">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3>React 18 + Tailwind CSS</h3>
+                        <p>Interfaz moderna y responsiva con componentes reutilizables y diseño mobile-first</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon nodejs">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <h3>Node.js + Express</h3>
+                        <p>Backend robusto con API REST, autenticación JWT y middlewares de seguridad avanzados</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon postgresql">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>PostgreSQL + Prisma ORM</h3>
+                        <p>Base de datos empresarial con ORM moderno para consultas type-safe y migraciones automáticas</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon tools">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Zustand + React Hook Form</h3>
+                        <p>Gestión de estado optimizada y formularios con validación Zod para experiencia fluida</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon charts">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Recharts + shadcn/ui</h3>
+                        <p>Gráficos interactivos y componentes UI accesibles para visualización de datos profesional</p>
+                    </div>
+                </div>
+                
+                <div class="tech-features">
+                    <div class="tech-feature-card">
+                        <div class="tech-feature-header">
+                            <i class="fas fa-rocket"></i>
+                            <h4>Frontend Moderno</h4>
+                        </div>
+                        <ul class="tech-feature-list">
+                            <li><strong>Next.js 14:</strong> Framework React con SSR y SSG</li>
+                            <li><strong>TypeScript 5:</strong> Tipado estático para mejor desarrollo</li>
+                            <li><strong>Tailwind CSS:</strong> Diseño utility-first responsive</li>
+                            <li><strong>Radix UI + shadcn/ui:</strong> Componentes accesibles</li>
+                            <li><strong>Zustand:</strong> Estado global ligero y eficiente</li>
+                            <li><strong>React Hook Form + Zod:</strong> Formularios optimizados</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-feature-card">
+                        <div class="tech-feature-header">
+                            <i class="fas fa-server"></i>
+                            <h4>Backend Robusto</h4>
+                        </div>
+                        <ul class="tech-feature-list">
+                            <li><strong>Node.js 18+:</strong> Runtime JavaScript de alto rendimiento</li>
+                            <li><strong>Express.js:</strong> Framework web rápido y minimalista</li>
+                            <li><strong>PostgreSQL:</strong> Base de datos empresarial confiable</li>
+                            <li><strong>Prisma ORM:</strong> Consultas type-safe y migraciones</li>
+                            <li><strong>JWT + bcrypt:</strong> Autenticación segura</li>
+                            <li><strong>CORS + Rate Limiting:</strong> Seguridad avanzada</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planes y Precios -->
+        <section class="pricing-section">
+            <div class="container">
+                <div class="pricing-header">
+                    <h2>Planes y Precios</h2>
+                    <p>Elige el plan perfecto para tu ferretería</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header-card">
+                            <h3>Básico</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">450.000</span>
+                            </div>
+                            <p>Perfecto para ferreterías pequeñas</p>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Sistema completo con todos los módulos</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>1 Administrador + 1 Vendedor</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Hasta 2,000 productos</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Categorías ilimitadas</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Reportes básicos</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Soporte técnico</span>
+                            </div>
+                        </div>
+                        <a href="index.html#contacto" class="btn-pricing">Solicitar Demo</a>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="popular-badge">Más Popular</div>
+                        <div class="pricing-header-card">
+                            <h3>Profesional</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">700.000</span>
+                            </div>
+                            <p>Ideal para ferreterías en crecimiento</p>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Todo lo del plan Básico</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Usuarios ilimitados</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Productos ilimitados</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Analytics avanzados</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Backup automático diario</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Soporte prioritario 24/7</span>
+                            </div>
+                        </div>
+                        <a href="index.html#contacto" class="btn-pricing">Solicitar Demo</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header-card">
+                            <h3>Enterprise</h3>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">1.000.000</span>
+                            </div>
+                            <p>Para grandes ferreterías y cadenas</p>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Todo lo del plan Profesional</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Múltiples sucursales</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>E-commerce integrado</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>API personalizada</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Integración contable</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Consultoría especializada</span>
+                            </div>
+                        </div>
+                        <a href="index.html#contacto" class="btn-pricing">Solicitar Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="final-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>¿Listo para Revolucionar tu Ferretería?</h2>
+                    <p>Únete a las ferreterías que ya confían en nuestro sistema para optimizar sus operaciones, aumentar sus ventas y mejorar la experiencia del cliente.</p>
+                    <div class="cta-buttons">
+                        <a href="index.html#contacto" class="btn-cta primary">
+                            <i class="fas fa-rocket"></i>
+                            Solicitar Demo Gratuita
+                        </a>
+                        <a href="tel:3118541144" class="btn-cta secondary">
+                            <i class="fas fa-phone"></i>
+                            Llamar Ahora: 311-854-1144
+                        </a>
+                    </div>
+                    <div class="cta-guarantee">
+                        <div class="guarantee-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Garantía de satisfacción</span>
+                        </div>
+                        <div class="guarantee-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Soporte técnico incluido</span>
+                        </div>
+                        <div class="guarantee-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>Instalación en 24 horas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer simplificado -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-simple">
+                <p>&copy; 2025 Starry System. Todos los derechos reservados.</p>
+                <a href="index.html">Volver al inicio</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-ferreteria.js"></script>
+    <script>
+        // Script de emergencia para mostrar contenido
+        document.addEventListener('DOMContentLoaded', function() {
+            // Asegurar que todo sea visible
+            document.querySelectorAll('.module-section').forEach(section => {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+                section.style.display = 'block';
+            });
+            
+            // Ajustar padding del hero
+            const hero = document.querySelector('.ferreteria-hero');
+            if (hero) {
+                hero.style.paddingTop = '80px';
+            }
+        });
+    </script>
+</body>
+</html>
