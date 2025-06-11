@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Personalizado - Starry System</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="../assets/img/ico.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#6366f1',
+              secondary: '#8b5cf6',
+              accent: '#06b6d4'
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">
+            <h2><a href="../index.html" title="Volver arriba"><i class="fas fa-star"></i>Starry System</a></h2>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="../index.html" title="Volver al inicio">Inicio</a></li>
+            <li><a href="../index.html#servicios" title="Nuestros servicios">Servicios</a></li>
+            <li><a href="../index.html#portfolio" title="Nuestros proyectos">Portfolio</a></li>
+            <li><a href="../index.html#nosotros" title="Sobre nosotros">Nosotros</a></li>
+            <li><a href="../index.html#contacto" title="Contacto">Contacto</a></li>
+        </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="software-hero">
+      <div class="container">
+        <div class="software-hero-content">
+          <div class="breadcrumb">
+            <a href="../index.html">Inicio</a> /
+            <span>Software Personalizado</span>
+          </div>
+          <h1>Software Personalizado</h1>
+          <p>
+            Desarrollamos aplicaciones empresariales únicas con arquitectura hexagonal,
+            microservicios escalables y tecnologías modernas como TypeScript y Python.
+          </p>
+          <div class="hero-features">
+            <div class="feature-badge">
+              <i class="fas fa-cube"></i>
+              <span>Arquitectura Hexagonal</span>
+            </div>
+            <div class="feature-badge">
+              <i class="fas fa-network-wired"></i>
+              <span>Microservicios</span>
+            </div>
+            <div class="feature-badge">
+              <i class="fas fa-code"></i>
+              <span>TypeScript + Python</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Características Principales con Tailwind -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Características Principales</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Nuestro enfoque en arquitectura limpia y tecnologías modernas garantiza
+            soluciones robustas, escalables y mantenibles.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Arquitectura Hexagonal -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-hexagon text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Arquitectura Hexagonal</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Implementamos patrones de diseño que separan la lógica de negocio
+              de las dependencias externas, garantizando flexibilidad y testabilidad.
+            </p>
+            <div class="mt-6">
+              <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">Clean Architecture</span>
+              <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">SOLID Principles</span>
+            </div>
+          </div>
+
+          <!-- Microservicios -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-cubes text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Microservicios Escalables</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Arquitectura distribuida que permite escalar componentes independientemente
+              y facilita el mantenimiento y despliegue continuo.
+            </p>
+            <div class="mt-6">
+              <span class="inline-block bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">Docker</span>
+              <span class="inline-block bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">API Gateway</span>
+            </div>
+          </div>
+
+          <!-- TypeScript Frontend -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="w-16 h-16 bg-gradient-to-r from-accent to-primary rounded-xl flex items-center justify-center mb-6">
+              <i class="fab fa-js-square text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Frontend TypeScript</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Interfaces modernas y reactivas desarrolladas con TypeScript,
+              garantizando type safety y mejor experiencia de desarrollo.
+            </p>
+            <div class="mt-6">
+              <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">React/Vue</span>
+              <span class="inline-block bg-cyan-100 text-cyan-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">TypeScript</span>
+            </div>
+          </div>
+
+          <!-- Python Backend -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center mb-6">
+              <i class="fab fa-python text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Backend Python</h3>
+            <p class="text-gray-600 leading-relaxed">
+              APIs robustas y eficientes desarrolladas con FastAPI o Django,
+              optimizadas para alto rendimiento y escalabilidad.
+            </p>
+            <div class="mt-6">
+              <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">FastAPI</span>
+              <span class="inline-block bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">Django</span>
+            </div>
+          </div>
+
+          <!-- Base de Datos -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-database text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Base de Datos Optimizada</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Diseño de esquemas eficientes con PostgreSQL o MongoDB,
+              implementando patrones de optimización y caching.
+            </p>
+            <div class="mt-6">
+              <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">PostgreSQL</span>
+              <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">MongoDB</span>
+            </div>
+          </div>
+
+          <!-- DevOps -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-cloud text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">DevOps & Cloud</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Implementación de CI/CD, containerización y despliegue en cloud
+              para garantizar disponibilidad y escalabilidad automática.
+            </p>
+            <div class="mt-6">
+              <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">AWS/Azure</span>
+              <span class="inline-block bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">CI/CD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stack Tecnológico con Tailwind -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Stack Tecnológico</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Utilizamos las tecnologías más modernas y probadas para garantizar
+            el éxito de tu proyecto.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Frontend -->
+          <div class="group">
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300">
+              <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-desktop text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Frontend</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-center justify-center"><i class="fab fa-react text-blue-500 mr-2"></i> React/Next.js</li>
+                <li class="flex items-center justify-center"><i class="fab fa-vuejs text-green-500 mr-2"></i> Vue.js/Nuxt</li>
+                <li class="flex items-center justify-center"><i class="fab fa-js-square text-yellow-500 mr-2"></i> TypeScript</li>
+                <li class="flex items-center justify-center"><i class="fas fa-paint-brush text-purple-500 mr-2"></i> Tailwind CSS</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="group">
+            <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300">
+              <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-server text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Backend</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-center justify-center"><i class="fab fa-python text-blue-600 mr-2"></i> Python/FastAPI</li>
+                <li class="flex items-center justify-center"><i class="fas fa-leaf text-green-600 mr-2"></i> Django/Flask</li>
+                <li class="flex items-center justify-center"><i class="fab fa-node-js text-green-500 mr-2"></i> Node.js/Express</li>
+                <li class="flex items-center justify-center"><i class="fas fa-bolt text-yellow-500 mr-2"></i> GraphQL/REST</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Database -->
+          <div class="group">
+            <div class="bg-gradient-to-br from-orange-50 to-red-100 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300">
+              <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-database text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">Database</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-center justify-center"><i class="fas fa-elephant text-blue-600 mr-2"></i> PostgreSQL</li>
+                <li class="flex items-center justify-center"><i class="fas fa-leaf text-green-600 mr-2"></i> MongoDB</li>
+                <li class="flex items-center justify-center"><i class="fas fa-memory text-red-500 mr-2"></i> Redis</li>
+                <li class="flex items-center justify-center"><i class="fas fa-search text-yellow-600 mr-2"></i> Elasticsearch</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- DevOps -->
+          <div class="group">
+            <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300">
+              <div class="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-cloud text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">DevOps</h3>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-center justify-center"><i class="fab fa-docker text-blue-500 mr-2"></i> Docker/K8s</li>
+                <li class="flex items-center justify-center"><i class="fab fa-aws text-orange-500 mr-2"></i> AWS/Azure</li>
+                <li class="flex items-center justify-center"><i class="fab fa-github text-gray-800 mr-2"></i> GitHub Actions</li>
+                <li class="flex items-center justify-center"><i class="fas fa-chart-line text-green-500 mr-2"></i> Monitoring</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso de Desarrollo -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Proceso de Desarrollo</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Seguimos una metodología ágil y estructurada para garantizar
+            la entrega exitosa de tu proyecto.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">1</div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Análisis</h3>
+            <p class="text-gray-600">Entendemos tus necesidades y definimos los requerimientos técnicos y funcionales.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">2</div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Diseño</h3>
+            <p class="text-gray-600">Creamos la arquitectura del sistema y los prototipos de interfaz de usuario.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">3</div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Desarrollo</h3>
+            <p class="text-gray-600">Implementamos la solución siguiendo las mejores prácticas y estándares de calidad.</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">4</div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Entrega</h3>
+            <p class="text-gray-600">Desplegamos la aplicación y proporcionamos soporte continuo y mantenimiento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planes de Precios -->
+    <section class="software-pricing py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Planes de Desarrollo</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Ofrecemos diferentes opciones adaptadas al tamaño y complejidad de tu proyecto.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Plan Startup -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300">
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">Startup</h3>
+              <div class="text-4xl font-bold text-primary mb-2">$1M - $2M</div>
+              <p class="text-gray-600">Ideal para startups y proyectos pequeños</p>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> MVP funcional</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Arquitectura básica</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> 2-3 microservicios</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Frontend responsive</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> API REST básica</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> 3 meses de soporte</li>
+            </ul>
+            <a href="../index.html#contacto" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-semibold hover:bg-blue-600 transition-colors duration-300">
+              Solicitar Cotización
+            </a>
+          </div>
+
+          <!-- Plan Profesional -->
+          <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 shadow-xl text-white transform scale-105 relative">
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-semibold">
+              Más Popular
+            </div>
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-bold mb-2">Profesional</h3>
+              <div class="text-4xl font-bold mb-2">$2M - $5M</div>
+              <p class="text-blue-100">Para empresas en crecimiento</p>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i> Aplicación completa</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i> Arquitectura hexagonal</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i> 5-8 microservicios</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i> Dashboard admin</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i> APIs avanzadas</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i> 6 meses de soporte</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-300 mr-3"></i> Testing automatizado</li>
+            </ul>
+            <a href="../index.html#contacto" class="block w-full bg-white text-primary text-center py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300">
+              Solicitar Cotización
+            </a>
+          </div>
+
+          <!-- Plan Enterprise -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300">
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
+              <div class="text-4xl font-bold text-primary mb-2">$7M+</div>
+              <p class="text-gray-600">Soluciones empresariales complejas</p>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Sistema empresarial</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Arquitectura distribuida</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> 10+ microservicios</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Múltiples interfaces</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Integración de sistemas</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> 12 meses de soporte</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> DevOps completo</li>
+              <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i> Consultoría técnica</li>
+            </ul>
+            <a href="../index.html#contacto" class="block w-full bg-primary text-white text-center py-3 rounded-xl font-semibold hover:bg-blue-600 transition-colors duration-300">
+              Solicitar Cotización
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="software-cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para transformar tu idea en realidad?</h2>
+          <p>
+            Contáctanos para una consulta gratuita y descubre cómo podemos
+            desarrollar la solución perfecta para tu negocio.
+          </p>
+          <a href="../index.html#contacto" class="btn-cta"
+            >Solicitar Consulta Gratuita</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer simplificado -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-simple">
+          <p>&copy; 2025 Starry System. Todos los derechos reservados.</p>
+          <a href="../index.html">Volver al inicio</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
