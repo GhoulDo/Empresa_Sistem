@@ -500,7 +500,7 @@
               <label for="mensaje">Mensaje</label>
               <textarea
                 id="mensaje"
-                name="mensaje"
+                name="message"
                 placeholder="Cuéntanos sobre tu proyecto..."
                 rows="5"
                 required
@@ -508,11 +508,13 @@
             </div>
 
             <div class="form-submit">
-              <button type="submit">
+              <button type="submit" id="contactForm-button">
                 <i class="fas fa-paper-plane"></i>
                 Enviar Mensaje
               </button>
             </div>
+            
+            <p id="contactForm-status" style="margin-top: 1rem; padding: 1rem; border-radius: 8px; display: none;"></p>
           </form>
         </div>
       </div>
@@ -577,5 +579,60 @@
     </footer>
 
     <script src="./js/script.js"></script>
+    
+    <!-- Formspree JavaScript -->
+    <script>
+      var form = document.getElementById("contactForm");
+      
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("contactForm-status");
+        var button = document.getElementById("contactForm-button");
+        var data = new FormData(event.target);
+        
+        // Mostrar estado de carga
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        button.disabled = true;
+        status.style.display = "block";
+        status.innerHTML = "Enviando mensaje...";
+        status.style.backgroundColor = "#e3f2fd";
+        status.style.color = "#1976d2";
+        
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+              'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            status.innerHTML = "¡Gracias por tu mensaje! Te contactaremos pronto.";
+            status.style.backgroundColor = "#e8f5e8";
+            status.style.color = "#2e7d32";
+            form.reset();
+          } else {
+            response.json().then(data => {
+              if (Object.hasOwn(data, 'errors')) {
+                status.innerHTML = "Error: " + data["errors"].map(error => error["message"]).join(", ");
+              } else {
+                status.innerHTML = "¡Oops! Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.";
+              }
+              status.style.backgroundColor = "#ffebee";
+              status.style.color = "#c62828";
+            })
+          }
+        }).catch(error => {
+          status.innerHTML = "¡Oops! Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.";
+          status.style.backgroundColor = "#ffebee";
+          status.style.color = "#c62828";
+        }).finally(() => {
+          // Restaurar botón
+          button.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensaje';
+          button.disabled = false;
+        });
+      }
+      
+      form.addEventListener("submit", handleSubmit);
+    </script>
   </body>
 </html>
