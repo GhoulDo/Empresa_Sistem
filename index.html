@@ -3,12 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Starry_System - Desarrollo de Software y Landing Pages</title>
+    <title>Starry System - Desarrollo de Software y Landing Pages en Villavicencio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Desarrollo de software profesional para restaurantes, tiendas, ferreterías y landing pages en Villavicencio, Meta. Soluciones tecnológicas con arquitectura hexagonal, microservicios y TypeScript + Python." />
+    <meta name="keywords" content="desarrollo de software, software para restaurantes, software para tiendas, software para ferreterías, landing pages, Villavicencio, Meta, Colombia, TypeScript, Python, microservicios" />
+    <meta name="author" content="Starry System" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Spanish" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ghouldo.github.io/Empresa_Sistem/" />
+    <meta property="og:title" content="Starry System - Desarrollo de Software Profesional" />
+    <meta property="og:description" content="Transformamos ideas en soluciones digitales innovadoras. Especialistas en software para restaurantes, tiendas, ferreterías y landing pages en Villavicencio, Meta." />
+    <meta property="og:image" content="https://ghouldo.github.io/Empresa_Sistem/assets/img/starrysystem.png" />
+    <meta property="og:locale" content="es_CO" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://ghouldo.github.io/Empresa_Sistem/" />
+    <meta name="twitter:title" content="Starry System - Desarrollo de Software Profesional" />
+    <meta name="twitter:description" content="Transformamos ideas en soluciones digitales innovadoras en Villavicencio, Meta." />
+    <meta name="twitter:image" content="https://ghouldo.github.io/Empresa_Sistem/assets/img/starrysystem.png" />
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Starry System",
+      "image": "https://ghouldo.github.io/Empresa_Sistem/assets/img/starrysystem.png",
+      "description": "Desarrollo de software profesional para restaurantes, tiendas, ferreterías y landing pages",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Villavicencio",
+        "addressRegion": "Meta",
+        "addressCountry": "CO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "4.1420",
+        "longitude": "-73.6267"
+      },
+      "url": "https://ghouldo.github.io/Empresa_Sistem/",
+      "telephone": "+57-311-854-1144",
+      "email": "joooohanenciso@gmail.com",
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
+    
+    <!-- Preconnect para mejorar rendimiento -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="dns-prefetch" href="https://formspree.io">
+    <link rel="dns-prefetch" href="https://wa.me">
+    
     <link rel="stylesheet" href="./css/styles.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -19,48 +84,52 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/ico.png" />
     <link rel="shortcut icon" href="assets/img/ico.png" type="image/x-icon" />
     <link rel="apple-touch-icon" href="assets/img/ico.png" />
-
-    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <header class="header">
-      <nav class="navbar">
+    <!-- Skip Link para accesibilidad -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <header class="header" role="banner">
+      <nav class="navbar" role="navigation" aria-label="Navegación principal">
         <div class="nav-container">
           <div class="logo">
-            <h2><a href="" title="Volver arriba"><i class="fas fa-star"></i>Starry System</a></h2>
+            <h2><a href="#inicio" title="Volver arriba" aria-label="Starry System - Inicio"><i class="fas fa-star" aria-hidden="true"></i><span>Starry System</span></a></h2>
           </div>
-          <ul class="nav-menu">
-            <li><a href="#inicio" title="Nuestro menu de inicio">Inicio</a></li>
-            <li>
-              <a href="#servicios" title="Nuestros distintos servicios"
+          <ul class="nav-menu" role="menubar">
+            <li role="none"><a href="#inicio" role="menuitem" title="Nuestro menu de inicio">Inicio</a></li>
+            <li role="none">
+              <a href="#servicios" role="menuitem" title="Nuestros distintos servicios"
                 >Servicios</a
               >
             </li>
-            <li>
-              <a href="#portfolio" title="Mira nuestros increibles proyectos ✔️"
+            <li role="none">
+              <a href="#portfolio" role="menuitem" title="Mira nuestros increibles proyectos ✔️"
                 >Portafolio</a
               >
             </li>
-            <li>
-              <a href="#nosotros" title="¿Porque StarrySystem?">Nosotros</a>
+            <li role="none">
+              <a href="#nosotros" role="menuitem" title="¿Porque StarrySystem?">Nosotros</a>
             </li>
-            <li>
+            <li role="none"><a href="#testimonios" role="menuitem" title="Testimonios de clientes">Testimonios</a></li>
+            <li role="none">
               <a
                 href="#contacto"
+                role="menuitem"
                 title="Completa el formulario para agendar proyecto"
                 >Contacto</a
               >
             </li>
           </ul>
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+          <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
         </div>
       </nav>
     </header>
-    <section id="inicio" class="hero">
+    <main id="main-content">
+    <section id="inicio" class="hero" aria-label="Sección principal">
       <div class="hero-background">
         <div class="hero-overlay"></div>
         <div class="floating-elements">
@@ -103,9 +172,9 @@
               <span>Explorar Servicios</span>
               <i class="fas fa-arrow-right"></i>
             </a>
-            <a href="#contacto" class="btn-secondary">
-              <i class="fas fa-play"></i>
-              <span>Ver Demo</span>
+            <a href="#testimonios" class="btn-secondary">
+              <i class="fas fa-star"></i>
+              <span>Ver Testimonios</span>
             </a>
           </div>
         </div>
@@ -113,8 +182,11 @@
           <div class="image-container">
             <img
               src="assets/img/starrysystem.png"
-              alt="Desarrollo de Software - Starry_System"
+              alt="Starry System - Desarrollo de Software Profesional en Villavicencio, Meta. Especialistas en software para restaurantes, tiendas y ferreterías."
               class="hero-main-image"
+              loading="eager"
+              width="600"
+              height="400"
             />
             <div class="tech-badges">
               <div class="tech-badge">React</div>
@@ -128,7 +200,7 @@
       <div class="scroll-indicator" id="scrollIndicator">
         <div class="scroll-arrow" id="scrollArrow">
           <i
-            class="fas fa-chevron-down transition-transform duration-500 ease-in-out"
+            class="fas fa-chevron-down"
             id="scrollIcon"
           ></i>
         </div>
@@ -136,7 +208,7 @@
     </section>
 
     <!-- Servicios -->
-    <section id="servicios" class="services">
+    <section id="servicios" class="services" aria-label="Nuestros servicios">
       <div class="container">
         <div class="section-header">
           <div class="section-badge">Nuestros Servicios</div>
@@ -152,8 +224,8 @@
         </div>
         <div class="services-grid">
           <div class="service-card premium">
-            <div class="service-icon">
-              <i class="fas fa-utensils"></i>
+            <div class="service-icon" aria-hidden="true">
+              <i class="fas fa-utensils" aria-hidden="true"></i>
             </div>
             <div class="service-content">
               <h3>Software para Restaurantes</h3>
@@ -179,8 +251,8 @@
             </div>
           </div>
           <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-store"></i>
+            <div class="service-icon" aria-hidden="true">
+              <i class="fas fa-store" aria-hidden="true"></i>
             </div>
             <div class="service-content">
               <h3>Software para Tiendas</h3>
@@ -206,8 +278,8 @@
             </div>
           </div>
           <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-tools"></i>
+            <div class="service-icon" aria-hidden="true">
+              <i class="fas fa-tools" aria-hidden="true"></i>
             </div>
             <div class="service-content">
               <h3>Software para Ferreterías</h3>
@@ -231,8 +303,8 @@
             </div>
           </div>
           <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-cogs"></i>
+            <div class="service-icon" aria-hidden="true">
+              <i class="fas fa-cogs" aria-hidden="true"></i>
             </div>
             <div class="service-content">
               <h3>Software Personalizado</h3>
@@ -258,8 +330,8 @@
             </div>
           </div>
           <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-globe"></i>
+            <div class="service-icon" aria-hidden="true">
+              <i class="fas fa-globe" aria-hidden="true"></i>
             </div>
             <div class="service-content">
               <h3>Landing Pages Profesionales</h3>
@@ -287,7 +359,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio" aria-label="Portfolio de proyectos">
       <div class="container">
         <div class="section-header">
           <div class="section-badge">Nuestro Trabajo</div>
@@ -299,8 +371,8 @@
         </div>
         <div class="portfolio-grid">
           <div class="portfolio-item">
-            <div class="portfolio-image">
-              <i class="fas fa-pizza-slice"></i>
+            <div class="portfolio-image" aria-hidden="true">
+              <i class="fas fa-pizza-slice" aria-hidden="true"></i>
             </div>
             <div class="portfolio-content">
               <h3>Sistema POS Restaurante La Plaza</h3>
@@ -316,8 +388,8 @@
             </div>
           </div>
           <div class="portfolio-item">
-            <div class="portfolio-image">
-              <i class="fas fa-shopping-cart"></i>
+            <div class="portfolio-image" aria-hidden="true">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
             </div>
             <div class="portfolio-content">
               <h3>E-commerce MercadoLocal</h3>
@@ -333,8 +405,8 @@
             </div>
           </div>
           <div class="portfolio-item">
-            <div class="portfolio-image">
-              <i class="fas fa-chart-line"></i>
+            <div class="portfolio-image" aria-hidden="true">
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
             </div>
             <div class="portfolio-content">
               <h3>Dashboard Empresarial</h3>
@@ -349,8 +421,8 @@
             </div>
           </div>
           <div class="portfolio-item">
-            <div class="portfolio-image">
-              <i class="fas fa-laptop-code"></i>
+            <div class="portfolio-image" aria-hidden="true">
+              <i class="fas fa-laptop-code" aria-hidden="true"></i>
             </div>
             <div class="portfolio-content">
               <h3>Landing Page Corporativa</h3>
@@ -366,23 +438,121 @@
       </div>
     </section>
 
+    <!-- Testimonios -->
+    <section id="testimonios" class="testimonials" aria-label="Testimonios de clientes">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Lo que Dicen Nuestros Clientes</div>
+          <h2>
+            Testimonios
+            <span class="gradient-text">Reales</span>
+          </h2>
+          <p>
+            Conoce las experiencias de nuestros clientes y cómo hemos transformado sus negocios
+          </p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <i class="fas fa-user" aria-hidden="true"></i>
+              </div>
+              <div class="testimonial-info">
+                <h4>Carlos Méndez</h4>
+                <p>Restaurante La Plaza</p>
+              </div>
+              <div class="testimonial-rating" aria-label="Calificación: 5 estrellas">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                "El sistema POS ha mejorado completamente nuestras operaciones. 
+                Ahora podemos gestionar las mesas, comandas y ventas de manera eficiente. 
+                La atención al cliente y el soporte técnico han sido excelentes."
+              </p>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <i class="fas fa-user" aria-hidden="true"></i>
+              </div>
+              <div class="testimonial-info">
+                <h4>María Rodríguez</h4>
+                <p>Ferretería Central</p>
+              </div>
+              <div class="testimonial-rating" aria-label="Calificación: 5 estrellas">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                "Desde que implementamos el sistema de gestión, el control de inventario 
+                es mucho más fácil. La categorización de productos y el reporte de ventas 
+                nos ha ayudado a tomar mejores decisiones de negocio."
+              </p>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <i class="fas fa-user" aria-hidden="true"></i>
+              </div>
+              <div class="testimonial-info">
+                <h4>Juan Pérez</h4>
+                <p>Tienda El Ahorro</p>
+              </div>
+              <div class="testimonial-rating" aria-label="Calificación: 5 estrellas">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p>
+                "La landing page que desarrollaron ha incrementado nuestras ventas online 
+                significativamente. El diseño profesional y la facilidad de navegación 
+                han mejorado la experiencia de nuestros clientes."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Sobre Nosotros -->
-    <section id="nosotros" class="about">
+    <section id="nosotros" class="about" aria-label="Sobre Starry System">
       <div class="container">
         <div class="about-content">
           <div class="about-text">
-            <h2>Sobre Starry_System</h2>
+            <h2>Sobre Starry System</h2>
             <p>
               Somos una empresa de desarrollo de software ubicada en
-              Villavicencio, Meta, especializada en crear soluciones
+              Villavicencio, Meta, Colombia, especializada en crear soluciones
               tecnológicas innovadoras y landing pages profesionales para
               negocios locales y regionales.
             </p>
             <p>
               Nos caracterizamos por desarrollar software de alta calidad,
-              especialmente orientado a restaurantes y tiendas, landing pages
-              optimizadas para conversión, así como aplicaciones personalizadas
-              que se adaptan perfectamente a las necesidades de cada cliente.
+              especialmente orientado a restaurantes, tiendas y ferreterías, 
+              landing pages optimizadas para conversión, así como aplicaciones 
+              personalizadas que se adaptan perfectamente a las necesidades de cada cliente.
+            </p>
+            <p>
+              Con experiencia en arquitectura hexagonal, microservicios y tecnologías 
+              modernas como TypeScript y Python, nos comprometemos a entregar 
+              soluciones escalables, mantenibles y de alto rendimiento.
             </p>
             <div class="features">
               <div class="feature">
@@ -397,17 +567,29 @@
                 <i class="fas fa-check-circle"></i>
                 <span>Clean Architecture y escalabilidad</span>
               </div>
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Soporte técnico continuo</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Desarrollo ágil y entregas rápidas</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Equipo especializado en Villavicencio</span>
+              </div>
             </div>
           </div>
-          <div class="about-image">
-            <i class="fas fa-desktop"></i>
+          <div class="about-image" aria-hidden="true">
+            <i class="fas fa-desktop" aria-hidden="true"></i>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contacto -->
-    <section id="contacto" class="contact">
+    <section id="contacto" class="contact" aria-label="Información de contacto">
       <div class="container">
         <div class="section-header">
           <div class="section-badge">Contáctanos</div>
@@ -423,24 +605,41 @@
         <div class="contact-content">
           <div class="contact-info">
             <div class="contact-item">
-              <i class="fas fa-envelope"></i>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
               <div class="contact-item-content">
                 <h3>Email</h3>
-                <p>joooohanenciso@gmail.com</p>
+                <p><a href="mailto:joooohanenciso@gmail.com" aria-label="Enviar email a joooohanenciso@gmail.com">joooohanenciso@gmail.com</a></p>
               </div>
             </div>
             <div class="contact-item">
-              <i class="fas fa-phone"></i>
+              <i class="fas fa-phone" aria-hidden="true"></i>
               <div class="contact-item-content">
                 <h3>Teléfono</h3>
-                <p>311 854 1144</p>
+                <p><a href="tel:+573118541144" aria-label="Llamar al teléfono 311 854 1144">311 854 1144</a></p>
               </div>
             </div>
             <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
               <div class="contact-item-content">
                 <h3>Ubicación</h3>
                 <p>Villavicencio, Meta, Colombia</p>
+                <a href="https://maps.google.com/?q=Villavicencio,+Meta,+Colombia" target="_blank" rel="noopener noreferrer" aria-label="Ver ubicación en Google Maps (abre en nueva ventana)" style="color: var(--primary-color); text-decoration: none; margin-top: 0.5rem; display: inline-block; font-size: 0.9rem;">
+                  <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver en Google Maps
+                </a>
+              </div>
+            </div>
+            <div class="contact-item" style="grid-column: 1 / -1;">
+              <div style="width: 100%; height: 300px; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow-lg);">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254505.89342314137!2d-73.655625!3d4.1420!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e5828f8888889%3A0x8888888888888888!2sVillavicencio%2C%20Meta%2C%20Colombia!5e0!3m2!1ses!2ses!4v1234567890123!5m2!1ses!2ses" 
+                  width="100%" 
+                  height="100%" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Ubicación de Starry System en Villavicencio, Meta">
+                </iframe>
               </div>
             </div>
           </div>
@@ -487,7 +686,7 @@
             </div>
 
             <div class="form-group">
-              <label for="telefono">Teléfono (Opcional)</label>
+              <label for="telefono">Teléfono <span aria-label="opcional">(Opcional)</span></label>
               <input
                 type="tel"
                 id="telefono"
@@ -504,24 +703,27 @@
                 placeholder="Cuéntanos sobre tu proyecto..."
                 rows="5"
                 required
+                aria-describedby="mensaje-desc"
               ></textarea>
+              <small id="mensaje-desc" class="sr-only">Ingresa al menos 10 caracteres</small>
             </div>
 
             <div class="form-submit">
-              <button type="submit" id="contactForm-button">
-                <i class="fas fa-paper-plane"></i>
-                Enviar Mensaje
+              <button type="submit" id="contactForm-button" aria-label="Enviar mensaje de contacto">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                <span>Enviar Mensaje</span>
               </button>
             </div>
             
-            <p id="contactForm-status" style="margin-top: 1rem; padding: 1rem; border-radius: 8px; display: none;"></p>
+            <div id="contactForm-status" role="status" aria-live="polite" style="margin-top: 1rem; padding: 1rem; border-radius: 8px; display: none;"></div>
           </form>
         </div>
       </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
@@ -531,11 +733,11 @@
               pages profesionales. Tu socio tecnológico de confianza en
               Villavicencio, Meta.
             </p>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
+            <div class="social-links" role="list">
+              <a href="https://www.facebook.com/starrysystem" target="_blank" rel="noopener noreferrer" aria-label="Visitar nuestro Facebook (abre en nueva ventana)" role="listitem"><i class="fab fa-facebook" aria-hidden="true"></i><span class="sr-only">Facebook</span></a>
+              <a href="https://www.instagram.com/starrysystem" target="_blank" rel="noopener noreferrer" aria-label="Visitar nuestro Instagram (abre en nueva ventana)" role="listitem"><i class="fab fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a>
+              <a href="https://www.linkedin.com/company/starrysystem" target="_blank" rel="noopener noreferrer" aria-label="Visitar nuestro LinkedIn (abre en nueva ventana)" role="listitem"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
+              <a href="https://github.com/ghouldo" target="_blank" rel="noopener noreferrer" aria-label="Visitar nuestro GitHub (abre en nueva ventana)" role="listitem"><i class="fab fa-github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
             </div>
           </div>
           <div class="footer-section">
@@ -543,9 +745,11 @@
             <ul>
               <li><a href="#servicios">Software para Restaurantes</a></li>
               <li><a href="#servicios">Software para Tiendas</a></li>
+              <li><a href="#servicios">Software para Ferreterías</a></li>
               <li><a href="#servicios">Landing Pages</a></li>
               <li><a href="#servicios">Desarrollo Personalizado</a></li>
               <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#testimonios">Testimonios</a></li>
             </ul>
           </div>
           <div class="footer-section">
@@ -562,77 +766,89 @@
           <div class="footer-section">
             <h3>Newsletter</h3>
             <p>Mantente al día con las últimas tecnologías</p>
-            <div class="newsletter">
-              <input type="email" placeholder="Tu email" />
-              <button><i class="fas fa-paper-plane"></i></button>
-            </div>
+            <form class="newsletter-form" id="newsletterForm" aria-label="Formulario de suscripción al newsletter">
+              <label for="newsletterEmail" class="sr-only">Correo electrónico para newsletter</label>
+              <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Tu email" required aria-label="Ingresa tu correo electrónico" />
+              <button type="submit" id="newsletterButton" aria-label="Suscribirse al newsletter"><i class="fas fa-paper-plane" aria-hidden="true"></i><span class="sr-only">Suscribirse</span></button>
+            </form>
+            <p id="newsletter-status" style="margin-top: 0.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); display: none;"></p>
           </div>
         </div>
         <div class="footer-bottom">
           <p>&copy; 2025 Starry_System. Todos los derechos reservados.</p>
           <div class="footer-links">
-            <a href="#">Términos de Servicio</a>
-            <a href="#">Política de Privacidad</a>
+            <a href="./pages/terminos-servicio.html">Términos de Servicio</a>
+            <a href="./pages/politica-privacidad.html">Política de Privacidad</a>
+            <a href="./pages/faq.html">Preguntas Frecuentes</a>
           </div>
         </div>
       </div>
     </footer>
 
+    <!-- WhatsApp Button Flotante -->
+    <a href="https://wa.me/573118541144?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios%20de%20desarrollo%20de%20software" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="whatsapp-button"
+       title="Contáctanos por WhatsApp">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+      <span class="whatsapp-tooltip">¡Chatea con nosotros!</span>
+      <span class="sr-only">Contáctanos por WhatsApp</span>
+    </a>
+
     <script src="./js/script.js"></script>
     
-    <!-- Formspree JavaScript -->
+    
+    <!-- Newsletter JavaScript -->
     <script>
-      var form = document.getElementById("contactForm");
+      const newsletterForm = document.getElementById('newsletterForm');
+      const newsletterEmail = document.getElementById('newsletterEmail');
+      const newsletterButton = document.getElementById('newsletterButton');
+      const newsletterStatus = document.getElementById('newsletter-status');
       
-      async function handleSubmit(event) {
-        event.preventDefault();
-        var status = document.getElementById("contactForm-status");
-        var button = document.getElementById("contactForm-button");
-        var data = new FormData(event.target);
-        
-        // Mostrar estado de carga
-        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-        button.disabled = true;
-        status.style.display = "block";
-        status.innerHTML = "Enviando mensaje...";
-        status.style.backgroundColor = "#e3f2fd";
-        status.style.color = "#1976d2";
-        
-        fetch(event.target.action, {
-          method: form.method,
-          body: data,
-          headers: {
-              'Accept': 'application/json'
+      if (newsletterForm && newsletterEmail && newsletterButton && newsletterStatus) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const email = newsletterEmail.value.trim();
+          
+          if (!email) {
+            newsletterStatus.textContent = 'Por favor ingresa un email válido';
+            newsletterStatus.style.color = '#ef4444';
+            newsletterStatus.style.display = 'block';
+            return;
           }
-        }).then(response => {
-          if (response.ok) {
-            status.innerHTML = "¡Gracias por tu mensaje! Te contactaremos pronto.";
-            status.style.backgroundColor = "#e8f5e8";
-            status.style.color = "#2e7d32";
-            form.reset();
-          } else {
-            response.json().then(data => {
-              if (Object.hasOwn(data, 'errors')) {
-                status.innerHTML = "Error: " + data["errors"].map(error => error["message"]).join(", ");
-              } else {
-                status.innerHTML = "¡Oops! Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.";
-              }
-              status.style.backgroundColor = "#ffebee";
-              status.style.color = "#c62828";
-            })
+          
+          // Validar formato de email
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            newsletterStatus.textContent = 'Por favor ingresa un email válido';
+            newsletterStatus.style.color = '#ef4444';
+            newsletterStatus.style.display = 'block';
+            return;
           }
-        }).catch(error => {
-          status.innerHTML = "¡Oops! Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.";
-          status.style.backgroundColor = "#ffebee";
-          status.style.color = "#c62828";
-        }).finally(() => {
-          // Restaurar botón
-          button.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensaje';
-          button.disabled = false;
+          
+          // Cambiar estado del botón
+          const originalHTML = newsletterButton.innerHTML;
+          newsletterButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+          newsletterButton.disabled = true;
+          
+          // Simular envío (aquí puedes integrar con Mailchimp, Sendinblue, etc.)
+          setTimeout(() => {
+            newsletterStatus.textContent = '¡Gracias por suscribirte! Te mantendremos informado.';
+            newsletterStatus.style.color = '#10b981';
+            newsletterStatus.style.display = 'block';
+            newsletterEmail.value = '';
+            
+            // Restaurar botón
+            setTimeout(() => {
+              newsletterButton.innerHTML = originalHTML;
+              newsletterButton.disabled = false;
+              newsletterStatus.style.display = 'none';
+            }, 3000);
+          }, 1000);
         });
       }
-      
-      form.addEventListener("submit", handleSubmit);
     </script>
   </body>
 </html>

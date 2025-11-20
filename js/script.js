@@ -85,16 +85,52 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Menú hamburguesa mejorado
+// Menú hamburguesa mejorado con accesibilidad
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const body = document.body;
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    body.classList.toggle('menu-open');
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        body.classList.toggle('menu-open');
+        
+        // Actualizar aria-expanded
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+        hamburger.setAttribute('aria-label', !isExpanded ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+        
+        // Focus management
+        if (!isExpanded) {
+            // Abrir menú: focus en primer enlace
+            const firstLink = navMenu.querySelector('a');
+            if (firstLink) {
+                setTimeout(() => firstLink.focus(), 100);
+            }
+        } else {
+            // Cerrar menú: focus de vuelta al botón
+            hamburger.focus();
+        }
+    });
+    
+    // Cerrar menú con Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            hamburger.click();
+        }
+    });
+    
+    // Cerrar menú al hacer click fuera
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !hamburger.contains(e.target)) {
+            hamburger.click();
+        }
+    });
+}
 
 // Cerrar menú al hacer click en un enlace
 document.querySelectorAll('.nav-menu a').forEach(link => {
@@ -114,46 +150,142 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Formulario de contacto mejorado
+// Formulario de contacto mejorado con Formspree
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+if (contactForm) {
+    // Remover cualquier listener previo
+    const newForm = contactForm.cloneNode(true);
+    contactForm.parentNode.replaceChild(newForm, contactForm);
     
-    // Mostrar indicador de carga
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    submitBtn.disabled = true;
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('contactForm-status');
+    const button = document.getElementById('contactForm-button');
     
-    // Obtener datos del formulario
-    const formData = new FormData(this);
-    const nombre = formData.get('nombre');
-    const email = formData.get('email');
-    const telefono = formData.get('telefono');
-    const mensaje = formData.get('mensaje');
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Validar formulario antes de enviar
+        if (!validateContactForm()) {
+            return;
+        }
+        
+        // Mostrar estado de carga
+        const buttonContent = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i><span> Enviando...</span>';
+        button.disabled = true;
+        button.setAttribute('aria-busy', 'true');
+        
+        if (status) {
+            status.style.display = "block";
+            status.textContent = "Enviando mensaje...";
+            status.style.backgroundColor = "#e3f2fd";
+            status.style.color = "#1976d2";
+            status.setAttribute('role', 'status');
+            status.setAttribute('aria-live', 'polite');
+        }
+        
+        try {
+            const formData = new FormData(form);
+            
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                if (status) {
+                    status.textContent = "¡Gracias por tu mensaje! Te contactaremos pronto.";
+                    status.style.backgroundColor = "#e8f5e8";
+                    status.style.color = "#2e7d32";
+                }
+                form.reset();
+                
+                // Mostrar notificación adicional
+                showNotification('¡Mensaje enviado exitosamente! Te contactaremos pronto.', 'success');
+                
+                // Focus en primer campo después de envío exitoso
+                setTimeout(() => {
+                    const firstInput = form.querySelector('input[type="text"]');
+                    if (firstInput) firstInput.focus();
+                }, 500);
+            } else {
+                const data = await response.json();
+                let errorMessage = "¡Oops! Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.";
+                
+                if (data && Object.hasOwn(data, 'errors')) {
+                    errorMessage = "Error: " + data.errors.map(error => error.message).join(", ");
+                }
+                
+                if (status) {
+                    status.textContent = errorMessage;
+                    status.style.backgroundColor = "#ffebee";
+                    status.style.color = "#c62828";
+                }
+                showNotification(errorMessage, 'error');
+            }
+        } catch (error) {
+            console.error('Error al enviar formulario:', error);
+            const errorMessage = "¡Oops! Hubo un problema de conexión. Verifica tu internet e inténtalo de nuevo.";
+            
+            if (status) {
+                status.textContent = errorMessage;
+                status.style.backgroundColor = "#ffebee";
+                status.style.color = "#c62828";
+            }
+            showNotification(errorMessage, 'error');
+        } finally {
+            // Restaurar botón
+            button.innerHTML = buttonContent;
+            button.disabled = false;
+            button.removeAttribute('aria-busy');
+        }
+    });
+}
+
+// Función para validar formulario completo
+function validateContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return false;
     
-    // Simular delay de envío
-    setTimeout(() => {
-        // Crear enlace mailto
-        const subject = encodeURIComponent(`Consulta de ${nombre} - Starry_System`);
-        const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\n\nMensaje:\n${mensaje}`);
-        const mailtoLink = `mailto:joooohanenciso@gmail.com?subject=${subject}&body=${body}`;
-        
-        // Abrir cliente de email
-        window.location.href = mailtoLink;
-        
-        // Mostrar mensaje de confirmación mejorado
-        showNotification('¡Gracias por tu mensaje! Se abrirá tu cliente de email para enviar la consulta.', 'success');
-        
-        // Limpiar formulario
-        this.reset();
-        
-        // Restaurar botón
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    }, 1000);
-});
+    const nombre = form.querySelector('[name="nombre"]');
+    const email = form.querySelector('[name="email"]');
+    const mensaje = form.querySelector('[name="message"]');
+    
+    let isValid = true;
+    
+    // Validar nombre
+    if (nombre && (!nombre.value.trim() || nombre.value.trim().length < 2)) {
+        const formGroup = nombre.closest('.form-group');
+        if (formGroup) {
+            showFieldError(nombre, formGroup, 'El nombre debe tener al menos 2 caracteres');
+        }
+        isValid = false;
+    }
+    
+    // Validar email
+    if (email && (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()))) {
+        const formGroup = email.closest('.form-group');
+        if (formGroup) {
+            showFieldError(email, formGroup, 'Por favor ingresa un email válido');
+        }
+        isValid = false;
+    }
+    
+    // Validar mensaje
+    if (mensaje && (!mensaje.value.trim() || mensaje.value.trim().length < 10)) {
+        const formGroup = mensaje.closest('.form-group');
+        if (formGroup) {
+            showFieldError(mensaje, formGroup, 'El mensaje debe tener al menos 10 caracteres');
+        }
+        isValid = false;
+    }
+    
+    return isValid;
+}
 
 // Sistema de notificaciones
 function showNotification(message, type = 'success') {
@@ -654,29 +786,45 @@ document.addEventListener('DOMContentLoaded', () => {
         formObserver.observe(contactSection);
     }
     
-    // Validación en tiempo real
+    // Validación en tiempo real del formulario de contacto (evitar duplicación)
+    // Esta validación se aplica solo si no hay conflictos con el handler principal
     const form = document.getElementById('contactForm');
-    if (form) {
+    if (form && !form.hasAttribute('data-validation-initialized')) {
+        form.setAttribute('data-validation-initialized', 'true');
         const inputs = form.querySelectorAll('input, textarea');
         
         inputs.forEach(input => {
             const formGroup = input.closest('.form-group') || input.parentElement;
             
-            input.addEventListener('blur', () => validateField(input, formGroup));
-            input.addEventListener('input', () => clearFieldError(input, formGroup));
+            // Validación en blur (solo si hay valor)
+            input.addEventListener('blur', () => {
+                if (input.value.trim()) {
+                    validateField(input, formGroup);
+                }
+            }, { passive: true });
+            
+            // Limpiar errores mientras escribe
+            input.addEventListener('input', () => {
+                clearFieldError(input, formGroup);
+                // Mostrar éxito solo si es válido
+                if (input.value.trim() && input.checkValidity()) {
+                    showFieldSuccess(input, formGroup);
+                }
+            }, { passive: true });
             
             // Efecto de focus mejorado
             input.addEventListener('focus', () => {
+                clearFieldError(input, formGroup);
                 input.style.transform = 'translateY(-2px) scale(1.02)';
                 input.style.boxShadow = '0 5px 15px rgba(99, 102, 241, 0.2)';
-            });
+            }, { passive: true });
             
             input.addEventListener('blur', () => {
+                input.style.transform = 'translateY(0) scale(1)';
                 if (!input.value) {
-                    input.style.transform = 'translateY(0) scale(1)';
                     input.style.boxShadow = 'none';
                 }
-            });
+            }, { passive: true });
         });
     }
 });

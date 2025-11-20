@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ghouldo.github.io/Empresa_Sistem/sitemap.xml
+
+# Disallow
+Disallow: /pages/*.html$
+
+# Allow important pages
+Allow: /pages/software-ferreterias.html
+Allow: /pages/software-restaurantes.html
+Allow: /pages/software-tiendas.html
+Allow: /pages/software-personalizado.html
+Allow: /pages/faq.html
+Allow: /pages/politica-privacidad.html
+Allow: /pages/terminos-servicio.html
+
