@@ -1,0 +1,31 @@
+name: Static site checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate JavaScript syntax
+        run: |
+          find js -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+
+      - name: Validate local links and sitemap entries
+        run: node scripts/check-static-site.mjs
