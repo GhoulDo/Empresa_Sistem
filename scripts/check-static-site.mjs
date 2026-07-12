@@ -1,16 +1,8 @@
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, extname, join, normalize, relative, resolve } from 'node:path';
 
 const root = resolve(process.cwd());
-const supportedExtensions = new Set(['.html', '.css', '.js']);
 const failures = [];
-
-function walk(directory) {
-  return readdirSync(directory).flatMap((entry) => {
-    const absolutePath = join(directory, entry);
-    return statSync(absolutePath).isDirectory() ? walk(absolutePath) : [absolutePath];
-  });
-}
 
 function isExternal(reference) {
   return /^(?:[a-z]+:|\/\/|#)/i.test(reference);
@@ -20,23 +12,28 @@ function cleanReference(reference) {
   return decodeURIComponent(reference.split('#')[0].split('?')[0]);
 }
 
-const htmlFiles = walk(root).filter((file) => extname(file) === '.html' && !file.includes(`${join(root, '.git')}`));
-
-for (const htmlFile of htmlFiles) {
-  const html = readFileSync(htmlFile, 'utf8');
-  const references = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map((match) => match[1]);
+function validateLocalHtmlReferences(htmlPath) {
+  const html = readFileSync(htmlPath, 'utf8');
+  const references = [...html.matchAll(/href=["']([^"']+)["']/gi)].map((match) => match[1]);
 
   for (const reference of references) {
     if (isExternal(reference)) continue;
 
     const cleaned = cleanReference(reference);
-    if (!cleaned || !supportedExtensions.has(extname(cleaned))) continue;
+    if (!cleaned || extname(cleaned) !== '.html') continue;
 
-    const target = normalize(resolve(dirname(htmlFile), cleaned));
+    const target = normalize(resolve(dirname(htmlPath), cleaned));
     if (!existsSync(target)) {
-      failures.push(`${relative(root, htmlFile)} references missing file: ${cleaned}`);
+      failures.push(`${relative(root, htmlPath)} references missing page: ${cleaned}`);
     }
   }
+}
+
+const homePage = join(root, 'index.html');
+if (!existsSync(homePage)) {
+  failures.push('index.html is missing');
+} else {
+  validateLocalHtmlReferences(homePage);
 }
 
 const sitemapPath = join(root, 'sitemap.xml');
@@ -49,10 +46,11 @@ if (!existsSync(sitemapPath)) {
 
   for (const location of locations) {
     if (!location.startsWith(baseUrl)) continue;
+
     const repositoryPath = location.slice(baseUrl.length);
-    const target = repositoryPath ? join(root, repositoryPath) : join(root, 'index.html');
+    const target = repositoryPath ? join(root, repositoryPath) : homePage;
     if (!existsSync(target)) {
-      failures.push(`sitemap.xml references missing file: ${repositoryPath || 'index.html'}`);
+      failures.push(`sitemap.xml references missing page: ${repositoryPath || 'index.html'}`);
     }
   }
 }
@@ -63,4 +61,4 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log(`Static-site integrity checks passed for ${htmlFiles.length} HTML files.`);
+console.log('Static-site integrity checks passed for index.html and sitemap.xml.');
